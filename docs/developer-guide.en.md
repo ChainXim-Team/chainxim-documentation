@@ -12,6 +12,8 @@ Currently implemented consensus protocols (all options available for the consens
 | Consensus Class (Derived from Consensus) | Description       |
 | ---------------------------------------- | ----------------- |
 | consensus.PoW                            | Proof of Work     |
+| consensus.VirtualPoW                     | Proof of Work simulated by uniformly distributed random numbers and block generation probability |
+| consensus.SolidPoW                       | Proof of Work with strictly constrained hash calculations per round |
 
 Currently implemented network models (all options available for the network_type configuration):
 
@@ -32,7 +34,7 @@ The Environment component is the cornerstone of the ChainXim program, supporting
 
 ### Model Assumptions
 The system model design of ChainXim mainly refers to the following paper:
- 
+
 * J. A. Garay, A. Kiayias and N. Leonardos, "The bitcoin backbone protocol: Analysis and applications", Eurocrypt, 2015. <https://eprint.iacr.org/2014/765.pdf>
 
 ChainXim divides continuous time into discrete rounds, and all nodes in the network (including honest miners and dishonest attackers) will perform a certain number of operations in each round to compete for the accounting rights and generate and propagate new blocks. The total number of miners in the network is defined as $n$, among which $t$ miners belong to dishonest attackers. In each round, all miners are awakened in sequence according to their numbers and take actions based on their identities. Honest miners will strictly follow the consensus protocol to generate blocks; attackers will choose to follow the protocol or launch attacks based on the actual situation. **Note that in each round, the attack module will only be triggered once, and each trigger will perform a complete attack action. In the current version, attackers will be randomly triggered when it is the turn of an attacker in each round. Although the order of awakening different miners is different, there is no actual order within the same round.**
@@ -72,6 +74,18 @@ Overall, the Environment component completes the construction of the overall mod
 In the table above, envir_create_global_chain initializes and generates a global blockchain. After that, this chain will serve as the global blockchain tree and the global longest valid chain from a global view.
 The main program initializes the Environment object according to the simulation parameters, calls `exec` to start the simulation loop, and implements the random oracle method and diffusion method described in the paper. For attackers, the corresponding attacking operations needs to be executed through `attack_excute`. After the simulation ends, `view_and_write` is called to collect and output the simulation results.
 
+### DataItem Mechanism
+
+DataItem is an abstraction of on-chain data, with a data structure of 4 bytes for generation round + 4 bytes for a random number.
+
+When `dataitem_enable=True` is set in `system_config.ini`, the DataItem mechanism will be enabled with the following features:
+
+1. The TopologyNetwork and AdhocNetwork models will calculate block size and corresponding block propagation delay based on the number of DataItems stored in the block during simulation.
+2. During the evaluation stage, throughput will be calculated based on the number of DataItems in all blocks in the main chain.
+3. During the evaluation stage, the attack efficacy of attackers can be assessed based on the proportion of invalid DataItems on the chain (only DataItems generated in the Environment are valid, all others are invalid).
+
+In the current Environment implementation, each miner will be provided with `max_block_capacity` DataItems in each round, and miners need to package these DataItems into blocks during mining. Once a miner generates a new block, the Environment will generate new DataItems for miners to use before the start of the next round, ensuring that DataItems are sufficient to fill the block.
+
 
 ## Miner
 
@@ -106,7 +120,7 @@ BlockHead is used to define the data in the block header. data.BlockHead is an a
 | --------- | ----- | ------------------------------------------------------------ |
 | prehash   | bytes | Hash of the previous block                                   |
 | timestamp | int   | Timestamp when the block was created                         |
-| content   | Any   | Data carried in the block, generally transaction information or Merkle Root in actual systems |
+| content   | bytes | The data carried in the block. If DataItem is enabled, it is a sequence of DataItems; if DataItem is disabled, it defaults to the block generation round |
 | miner     | int   | ID of the miner or attacker who generated the block          |
 
 **Note: Since this simulator focuses more on the propagation of blocks in the network, the data stored in the blockchain (transactions, smart contracts, etc.) is abstracted using the content attribute.**
@@ -196,7 +210,7 @@ Consensus.BlockHead and Consensus.Block are initialized through the following in
 # consensus/consensus_abc.py
 class Consensus(metaclass=ABCMeta):
     class BlockHead(data.BlockHead):
-        def __init__(self, preblock:data.Block=None, timestamp=0, content=0, miner_id=-1):
+        def __init__(self, preblock:data.Block=None, timestamp=0, content=b'', miner_id=-1):
     
     class Block(data.Block):
         def __init__(self, blockhead: data.BlockHead, preblock: data.Block = None, isadversary=False, blocksize_MB=2):
@@ -208,7 +222,7 @@ Taking PoW as an example, when constructing a new Block object, you need to deri
 # consensus/pow.py
 class PoW(Consensus):
     class BlockHead(Consensus.BlockHead):
-        def __init__(self, preblock: Consensus.Block = None, timestamp=0, content=0, miner_id=-1,target = bytes(),nonce = 0):
+        def __init__(self, preblock: Consensus.Block = None, timestamp=0, content=b'', miner_id=-1,target = bytes(),nonce = 0):
             super().__init__(preblock, timestamp, content, miner_id)
             self.target = target  # Difficulty target
             self.nonce = nonce  # Random number
@@ -815,11 +829,11 @@ In renew, the attacker iterates through each miner it controls. All miners perfo
 If there is an update, the newly generated block is updated to the reference chain and the global chain. The former serves as the reference for the attack (the latest chain from the attacker's perspective), and the latter is recorded in the global chain.
 
 Summary: renew requires at least the following three parts:
- 
+
 * Perform local_state_update for each attacker miner.
- 
+
 * Update the reference chain and global chain based on the update results.
- 
+
 * Record the update results of each round as needed.
 
 If developers want to develop new attack modes, they can adjust the specific content of these three parts or add other functionalities as needed, but these three parts are essential.
@@ -940,15 +954,15 @@ Eclipse attacks are different from HonestMining and other attacks, as they need 
 ## Evaluation
 After `Environment.exec` is completed, `Environment.view_and_write` will be executed to evaluate and output the simulation results.
 
- 
+
 * `view_and_write` first calls `view` to obtain statistical data and output the results to the command line.
- 
+
 * `view` will call the `CalculateStatistics` function in the `global_chain` to perform data statistics on the global blockchain tree structure and update the results to the dictionary variable `stat`.
- 
+
 * Then, the global blockchain will be statistically analyzed from three dimensions: common prefix, chain quality, and chain growth. These three parts are implemented by the corresponding functions in `external.py`.
- 
+
 * Secondly, the `cal_block_propagation_times` function in the network is called to obtain network-related statistical parameters.
- 
+
 * Finally, `view_and_write` outputs the evaluation results to a file.
 
 The following is an explanation of the statistical parameters in `stat`, which correspond to the final output results of the simulator (see the user manual for details):
@@ -959,11 +973,14 @@ The following is an explanation of the statistical parameters in `stat`, which c
 | num_of_valid_blocks | Total number of blocks in the main chain (main chain length) |
 | num_of_stale_blocks | Number of stale blocks (blocks not in the main chain) |
 | stale_rate | Stale block rate = number of stale blocks / total number of blocks |
-| num_of_forks | Number of forks (on the main chain) |
-| fork_rate | Fork rate = number of heights with forks on the main chain / main chain height |
-| average_block_time_main | Average block time on the main chain = total rounds / main chain length |
-| block_throughput_main | Block throughput on the main chain = main chain length / total rounds |
-| throughput_main_MB | = block throughput on the main chain * block size |
+| num_of_forks | Number of forks (in the main chain) |
+| fork_rate | Fork rate = number of heights with forks in the main chain / main chain height |
+| average_block_time_main | Average block time in the main chain = total rounds / main chain length |
+| block_throughput_main | Block throughput in the main chain = main chain length / total rounds |
+| throughput_main_MB | = block throughput in the main chain * block size |
+| valid_dataitem_throughput | Throughput of valid data items = valid DataItems in the main chain / total rounds |
+| block_average_size | Average size per block (average number of data items * size of each data item) |
+| input_dataitem_rate | Input rate of data items |
 | average_block_time_total | Total average block time = total rounds / total number of generated blocks |
 | block_throughput_total | Total block throughput = total number of generated blocks / total rounds |
 | throughput_total_MB | = total block throughput * block size |
@@ -972,6 +989,7 @@ The following is an explanation of the statistical parameters in `stat`, which c
 | consistency_rate | Consistency index = common_prefix_pdf[0] |
 | average_chain_growth_in_honest_miners'_chain | Average increase in the length of the chains of honest miners |
 | chain_quality_property | Chain quality dictionary, recording the number of blocks produced by honest nodes and malicious nodes |
+| valid_dataitem_rate | Ratio of dataitems contributed by malicious players = valid DataItems in the main chain / total number of DataItems in the main chain |
 | ratio_of_blocks_contributed_by_malicious_players | Proportion of blocks produced by malicious nodes |
 | upper_bound t/(n-t) | Upper bound of the proportion of blocks produced by malicious nodes (n is the total number of miners, t is the number of malicious miners) |
 | block_propagation_times | Block propagation time (distribution) |
@@ -996,5 +1014,5 @@ Note that both `common_prefix` and `chain_growth` only implement part of the cor
 
 
 For more detailed explanations of the above three indicators, refer to:
- 
+
 * J. A. Garay, A. Kiayias and N. Leonardos, "The bitcoin backbone protocol: Analysis and applications", Eurocrypt, 2015. <https://eprint.iacr.org/2014/765.pdf>
