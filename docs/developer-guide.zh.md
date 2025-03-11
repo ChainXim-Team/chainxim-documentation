@@ -92,12 +92,12 @@ Miner组件定义了矿工类，用于创建矿工并进行相关的操作。其
 | ---------------- | ------------------------------------------------------------ | ----------------- | ------------------------------------------------------------ |
 | join_network     | network:Network                                              | -                 | 在网络初始化时矿工加入网络，初始化网络接口                   |
 | forward          | msgs:list[Message], msg_source_type:str, forward_strategy:str, spec_targets:list, syncLocalChain:bool | -                 | 通过网络接口层将消息转发给其他节点。 msgs需要转发的消息列表; msg_source_type消息来源类型, SELF_GEN_MSG表示由本矿工产生, OUTER_RCV_MSG表示由网络接收; forward_strategy 消息转发策略; spec_targets 如果forward_strategy为SPECIFIC, 则spec_targets为转发的目标节点列表; syncLocalChain 是否向邻居同步本地链，尽量在产生新区块时同步. |
-| set_adversary    | isAdversary:bool                                             | -                 | 设置各矿工是否为攻击者                                       |
+| set_adversary    | _isAdversary:bool                                             | -                 | 设置各矿工是否为攻击者                                       |
 | receive          | msg:message                                                  | bool              | 处理接收的信息，实际为调用consensus组件中的receive方法       |
 | launch_consensus | input:any                                                    | Block\|None, bool | 开始共识过程，实际为调用consensus组件中的consensus_process方法，返回新消息new_msg（没有新消息则为None）以及是否有新消息的标识符msg_available |
 | BackboneProtocol | round:int                                                    | Block\|None       | 诚实矿工每轮次执行的操作。首先从网络中接收信息（区块链更新），其次调用挖矿函数尝试生成区块。如果区块链有更新（接收到新区块或产生了新区块），则将新消息返回给环境组件，否则返回空 |
 
-考虑到仿真器的拓展性，miner组件自身定义的函数实际是很少的，主要的函数都在consensus组件与environment组件中定义，该组件实际上为联系各组件的桥梁。miner只能通过网络接口`self.NIC:NetworkInterface`与网络进行交互，网络接口调用`receive`函数将其他节点发送的消息传递给当前节点，当前节点通过`forward`函数将要转发的消息发给网络接口层，网络接口层通过网络层将消息发送给其他节点。
+考虑到仿真器的拓展性，miner组件自身定义的函数实际是很少的，主要的函数都在consensus组件与environment组件中定义，该组件实际上为联系各组件的桥梁。miner只能通过网络接口`self._NIC:NetworkInterface`与网络进行交互，网络接口调用`receive`函数将其他节点发送的消息传递给当前节点，当前节点通过`forward`函数将要转发的消息发给网络接口层，网络接口层通过网络层将消息发送给其他节点。
 
 ## 区块链数据 Chain Data
 
@@ -259,7 +259,7 @@ def create_genesis_block(self, chain:Chain, blockheadextra:dict = None, blockext
 
 ![message-lifecycle](doc/message-lifecycle.svg)
 
-其中比较值得关注的是粗体的六个方法，consensus_process调用mining_consensus实现出块，新区块经由launch_consensus调用forward进入矿工的转发队列，每轮次diffuse被调用时会调用Miner.NIC.nic_forward使区块进入模拟网络开始仿真。在矿工接收到新区块时，diffuse调用该矿工的receive方法实现区块接收（接收到的区块暂存于接收缓冲区_receive_tape），local_state_update在每个轮次开始时逐个验证\_receive_tape中的区块并更新到目标矿工的本地链中。需要注意的是消息的具体转发、接收过程对于不同网络类型会略有不同，详见[网络](#网络-Network)一节）
+其中比较值得关注的是粗体的六个方法，consensus_process调用mining_consensus实现出块，新区块经由launch_consensus调用forward进入矿工的转发队列，每轮次diffuse被调用时会调用Miner._NIC.nic_forward使区块进入模拟网络开始仿真。在矿工接收到新区块时，diffuse调用该矿工的receive方法实现区块接收（接收到的区块暂存于接收缓冲区_receive_tape），local_state_update在每个轮次开始时逐个验证\_receive_tape中的区块并更新到目标矿工的本地链中。需要注意的是消息的具体转发、接收过程对于不同网络类型会略有不同，详见[网络](#网络-Network)一节）
 
 #### 区块产生与传播
 
@@ -431,12 +431,12 @@ def join_network(self, network):
     """初始化网络接口"""
     if (isinstance(network, TopologyNetwork) or 
         isinstance(network, AdHocNetwork)):
-        self.NIC = NICWithTp(self)
+        self._NIC = NICWithTp(self)
     else:
-        self.NIC = NICWithoutTp(self)
+        self._NIC = NICWithoutTp(self)
     if isinstance(network, AdHocNetwork):
-        self.NIC.withSegments = True
-    self.NIC.nic_join_network(network)
+        self._NIC.withSegments = True
+    self._NIC.nic_join_network(network)
 ```
 矿工将共识过程产生的消息（目前仅有区块）通过该NIC实例发送到网络中；而网络也通过该NIC实例，将正在传播的区块发送给目标矿工。
 根据网络的类型不同，可以将网络分为两类：不带拓扑信息的抽象网络（SynchronousNetwork、StochPropNetwork、DeterPropNetwork）和带拓扑信息的拟真网络（TopologyNetwork、AdHocNetwork）。对应将Network Interface分为两类：`NICWithoutTp`和`NICWithTp`。这两类网络接口都继承自抽象基类`NetworkInterface`。在具体介绍网络接口前，先介绍一些`./miner/_consts.py`中预先定义的一些常量。
@@ -653,6 +653,7 @@ class PacketPVNet(Packet):
 | ave_degree (int)          | 网络生成方式为'rand'时，设置拓扑平均度                                                                                                    |
 | bandwidth_adv（float）    | 攻击者之间的带宽，单位MB/round                                                                                                            |
 | save_routing_graph (bool) | 是否保存各消息的路由传播图。建议网络规模较大时关闭                                                                                        |
+|enable_resume_transfer (bool)|是否开启链路中断恢复,当enable_resume_transfer=True时,链路发生中断后,发送方会重新发送剩余消息,否则会重新发送整个消息；而在链路因动态拓扑而断开时，若后续恢复仍然会重新发送整个消息|
 
 **接口函数**：
 
@@ -681,8 +682,8 @@ def receive_process(self,round):
         if link.delay > 0:
             continue
         # 链路传播完成，target接收数据包
-        link.target_miner().NIC.nic_receive(link.packet)
-        link.source_miner().NIC.get_reply(
+        link.target_miner()._NIC.nic_receive(link.packet)
+        link.source_miner()._NIC.get_reply(
             link.get_block_msg_name(),link.target_id(), None, round)
         dead_links.append(i)
     # 清理传播结束的link
@@ -699,7 +700,7 @@ def receive_process(self,round):
 def forward_process(self, round):
     """转发过程"""
     for m in self._miners:
-        m.NIC.nic_forward(round)
+        m._NIC.nic_forward(round)
 ```
 
 **其他重要函数**：
@@ -729,6 +730,9 @@ def forward_process(self, round):
 | comm_range(int)      | 节点通信距离，在通信距离内的两节点自动建立连接   |
 | move_variance(float) | 节点进行高斯随机游走时，指定xy坐标移动距离的方差 |
 | outage_prob(float)   | 链路中断概率                                     |
+| enable_large_scale_fading(bool) | 是否开启大尺度衰落，当开启时，segment_size将由衰落模型和bandwidth_max来确定 |
+| path_loss_level(str) | low/medium/high分别对应衰落系数为0.8/1/1.2 |
+| bandwidth_max(float) | MB/round；comm_range/100范围之内的带宽，即能达到的最大带宽 |
 
 **接口函数**：
 
@@ -738,7 +742,46 @@ def forward_process(self, round):
 | access_network   | new_msg:list[Message], minerid:int,<br>round:int       |将新消息、矿工id和当前轮次封装成Packet，加入network_tape|
 | diffuse  | round:int    | diffuse分为**receive_process**和**forward_process**|
 
+### 大尺度衰落
+
+#### 衰落模型
+
+在AdHoc网络中，可以开启大尺度衰落模型来模拟真实无线网络中的路径损耗。当enable_large_scale_fading=True时,系统将根据节点间距离计算实际带宽。
+
+路径损耗模型采用对数距离模型:
+
+$L(d) = L(d_0)+10nlg(d/d_0)$
+
+其中，d为节点间距离，d0为参考距离,设为通信范围的1%，n为路径损耗因子,可通过path_loss_level设置（low: n=0.8, medium: n=1.0, high: n=1.2）
+
+基于路径损耗模型,节点间实际带宽计算公式为:
+
+$B\left(d\right) = B\left(d_0\right)·10^{\left(L(d_0)-L(d)\right)/10} = B\left(d_0\right)·\left(d_0/d\right)^n$
+
+其中，B(d0)为参考距离d0处的带宽,由bandwidth_max参数指定，B(d)为距离d处的实际带宽
+
+segment_size由bandwidth_max和通信距离（Comm_range）决定，为`通信距离/100*bandwidth_max`。每轮可传输的分段数由实际带宽除以segment_size向上取整得到。当发生信道中断时,将中断当前传输的所有分段。
+
+大尺度衰落性能参考：
+
+Comm_range = 30   (Reference distance: d0 = Comm_range/100)
+
+bandwidth_max = 30   (Bandwidth at the reference point)
+
+path_loss_level = low (n=0.8)
+
+![large_scale_fading_08](doc/fading_08.png){: style="width: 600px"}
+
+path_loss_level = medium (n=1)
+
+![large_scale_fading_10](doc/fading_10.png){: style="width: 600px"}
+
+path_loss_level = high (n=1.2)
+
+![large_scale_fading_12](doc/fading_12.png){: style="width: 600px"}
+
 ## 攻击层 Attack
+
 攻击者通过感知环境，判断当前形势并作出攻击行为判决，执行当前较优的攻击决策。目前，攻击者部分还未实现动态决策，需要在仿真器运行前修改system_config.ini中的参数以设置不同的攻击策略。（内容等日蚀攻击全部完善之后再继续更新）
 
 ### 攻击层与整体的交互逻辑
