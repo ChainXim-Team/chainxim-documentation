@@ -512,18 +512,16 @@ Results/20230819-232107/
 
 #### 1. 算力攻击（honest mining）
 
-![honest_mining](doc/honest_mining.png){: style="height: 460px"}
+![honest_mining](doc/honest_mining.svg){: style="height: 460px"}
 
 ##### **四种不同网络对算力攻击的影响示意图**
 一次攻击成功的定义：攻击者产出区块，并被网络接受。
 
 **参数设置如下：**
 
-* 轮数：100000
+* 轮数：1000000轮
 
-* 曲线上单点重复次数：20
-
-* 矿工数：40
+* 矿工数：20
 
 * 共识类型：PoW
 
@@ -531,49 +529,30 @@ Results/20230819-232107/
 
 * q_ave = 1
 
-* 网络参数：四种网络参数均为默认
+* 网络参数：
+    blocksize=4 TopologyNetwork中带宽均为2 且 开启动态拓扑
+    其余网络参数为默认参数
 
 ---
 #### 2. 区块截留攻击（selfish mining）
-##### **四种不同网络对区块截留攻击的影响示意图**
+##### **不同网络对区块截留攻击的影响示意图**
 
-![selfish_mining](doc/selfish_mining.png){: style="height: 460px"}
+![selfish_mining](doc/selfish_mining.svg){: style="height: 460px"}
 
 纵坐标为链质量指标，即最终攻击者产出区块在主链中的占比。
 
 **参数设置如下：**
 
-- 仿真次数：100000轮*20次
-- 矿工数：40
+- 仿真次数：300000轮
+- 矿工数：20
 - 共识类型：PoW
 - 难度：000FFF...
 - q_ave = 1
-- 网络参数：四种网络参数均为默认
+- 网络参数：与算力攻击一样
 
----
-
-##### **矿工不同择链策略对区块截留攻击的影响示意图**
-
-![selfish_mining_2](doc/selfish_mining_2.png){: style="height: 460px"}
-
-图中的理论区域由以下公式得到：
-
-$$ R=\frac{\alpha(1-\alpha)^{2}(4\alpha+\gamma(1-2\alpha))-\alpha^{3}}{1-\alpha(1+(2-\alpha)\alpha)} $$
-
-$\alpha$为攻击者算力占全网比例，$0\leqslant\alpha\leqslant\frac{1}{2}$。
-$\gamma$为当网络中存在诚实链（最新的区块由诚实节点产出）与攻击链（从某一个区块开始到最新的区块均为攻击者产生）分叉时，选择在攻击链上继续挖矿的诚实矿工占其自身的比例，$0\leqslant\gamma\leqslant1$。
-注：矿工择链策略为内部测试功能，暂未开放。但本仿真器遵循着$\gamma=0$的挖矿策略，即所有诚实节点默认在诚实链分支上继续挖矿。因此使用者可以利用以下理论曲线公式验证。
+图中的理论曲线由以下公式得到：
 
 $$ R=\frac{4\alpha^{2}(1-\alpha)^{2}-\alpha^{3}}{1-\alpha(1+(2-\alpha)\alpha)} $$
-
-**参数设置如下：**
-
-- 仿真次数：100000轮*20次
-- 矿工数：40
-- 共识类型：PoW
-- 难度：000FFF...
-- q_ave = 1
-- 网络类型：SynchronousNetwork
 
 ---
 #### 3. 双花攻击（double spending）
@@ -581,21 +560,30 @@ $$ R=\frac{4\alpha^{2}(1-\alpha)^{2}-\alpha^{3}}{1-\alpha(1+(2-\alpha)\alpha)} $
 
 ##### **不同网络对双花攻击的影响示意图**
 
-![doublespending](doc/doublespending.png){: style="height: 460px"}
+![doublespending_different_net](doc/doublespending_net.svg){: style="height: 460px"}
 
 **参数设置如下：**
 
-- 仿真次数：1200000轮*1次
-- 矿工数：40
+- 仿真次数：3000000轮
+- 矿工数：20
 - 共识类型：PoW
 - 难度：000FFF...
 - q_ave = 1
-- 网络参数：四种网络参数均为默认
+- 网络参数：与算力攻击一样
 
 ---
 ##### **不同策略对双花攻击的影响与理论对比示意图**
 
-![double_spending](doc/double_spending.png){: style="height: 460px"}
+![double_spending](doc/doublespending.svg){: style="height: 460px"}
+
+**参数设置如下：**
+
+- 仿真次数：3000000轮
+- 矿工数：20
+- 共识类型：PoW
+- 难度：000FFF...
+- q_ave = 1
+- 网络参数：SynchronousNetwork
 
 图中的理论曲线由以下公式得到：
 
@@ -607,52 +595,30 @@ $N$为攻击者等待确认区块的数量，即攻击者会等待诚实链高�
 $N_g$表示当攻击者落后诚实链$N_g$个区块时放弃当前攻击。
 $\beta$为攻击者与诚实矿工算力之比，$0\leqslant\beta\leqslant1$。
 
-**参数设置如下：**
-
-- 仿真次数：3000000轮*1次
-- 矿工数：40
-- 共识类型：PoW
-- 难度：000FFF...
-- q_ave = 1
-- 网络类型：SynchronousNetwork
-
 ---
 
-#### 4. 日蚀攻击（eclipse attack）
+#### 4. 日蚀攻击（eclipsed double spending）
 
 
 ##### **受日蚀攻击影响下的双花攻击示意图**
 
-![eclipse1](doc/eclipse1.png){: style="height: 460px"}
+![eclipse_doublespending](doc/eclipse_doublespending.svg){: style="height: 460px"}
 
-图中绿色曲线 Theory Shift 10% 为曲线 Theory向左平移一个单位得到。
-
-![eclipse2](doc/eclipse2.png){: style="height: 460px"}
 
 **参数设置如下：**
 
-- 仿真次数：3000000轮*1次
-- 矿工数：20
+- 仿真次数：1000000轮
+- 矿工数：10
 - 共识类型：PoW
 - 难度：000FFF...
 - q_ave = 1
 - 网络类型：TopologyNetwork
-- 网络参数：图中的Full connect topolog、Random connect topolog、Eclipse 10% miners 以及 Eclipse 20% miners使用固定的邻接矩阵生成拓扑网络，其邻接矩阵分别为$TP_F$、$TP_R$、$TP_1$和$TP_2$，此外设置为默认
-    - $TP_F$矩阵为除对角线元素为0外均为1。
-    - $TP_R$矩阵为随机生成的拓扑网络。
-    - $TP_1$矩阵如图TP1（孤立节点为18，19）
-    - $TP_2$矩阵如图TP2（孤立节点为16，17，18，19）
-    
+- 区块大小：0MB
+- 网络参数：使用如下拓扑
 
-TP1邻接矩阵：
+  ![eclipse_topology](doc/eclipse_topology.svg)
 
-![matrix_tp1](doc/matrix_tp1.png)
-
-TP2邻接矩阵：
-
-![matrix_tp2](doc/matrix_tp2.png)
-
-**注：在设置攻击者时请绕开孤立节点，手动设置。**
+  日蚀目标设置为0号节点，攻击者设置为1,2,3,4等。简言之，0号节点只能与攻击者链接，其余节点是全连接。
 
 
 

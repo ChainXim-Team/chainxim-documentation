@@ -271,7 +271,7 @@ Configure AdHocNetwork parameters
 
 Configure DataItem parameters
 
-| system_config           | 命令行示例                    | 类型 | 说明                                                         |
+| system_config           | Command Line Example          | Type | Description                                                  |
 | ----------------------- | ----------------------------- | ---- | ------------------------------------------------------------ |
 | dataitem_enable         | `--dataitem_enable=False`     | bool | If True, data items will be generated and contained in blocks.    |
 | max_block_capacity      | `--max_block_capacity=10`     | int  | The maximum number ofdata items that a block can contain. max_block_capacity=0 will disable the dataitem mechanism.    |
@@ -494,20 +494,18 @@ Variation of propagation delay and 90% effective throughput with block size
 
 ### Attacker's Block Proportion under Different Attack Vectors
 
-#### 1. Hash Power Attack (honest mining)
+#### 1. Honest Mining Attack
 
-![honest_mining](doc/honest_mining.png){: style="height: 460px"}
+![honest_mining](doc/honest_mining.svg){: style="height: 460px"}
 
-##### **Impact of Four Different Networks on Hash Power Attack**
+##### **Impact of Four Different Networks on Honest Mining Attack**
 Definition of a successful attack: The attacker produces a block and is accepted by the network.
 
 **Parameter settings:**
 
-* Rounds: 100000
+* Rounds: 1000000 rounds
 
-* Repetitions per point on the curve: 20
-
-* Number of miners: 40
+* Number of miners: 20
 
 * Consensus type: PoW
 
@@ -515,21 +513,21 @@ Definition of a successful attack: The attacker produces a block and is accepted
 
 * q_ave = 1
 
-* Network parameters: default for all four network types
+* Network parameters: `blocksize=4`, the bandwidth of the edges in `TopologyNetwork` is `2MB/round` with dynamic topology enabled. Other network parameters are set to default values.
 
 ---
 #### 2. Selfish Mining Attack
-##### **Impact of Four Different Networks on Selfish Mining Attack**
+##### **Impact of Different Networks on Selfish Mining Attack**
 
-![selfish_mining](doc/selfish_mining.png){: style="height: 460px"}
+![selfish_mining](doc/selfish_mining.svg){: style="height: 460px"}
 
-The vertical axis represents the chain quality metric, i.e., the proportion of blocks produced by the attacker in the main chain.
+The vertical axis represents the chain quality metric, i.e., the proportion of blocks produced by the attacker in the main chain
 
 **Parameter settings:**
 
-* Simulation rounds: 100000 rounds * 20 times
+* Simulation rounds: 300000 rounds
 
-* Number of miners: 40
+* Number of miners: 20
 
 * Consensus type: PoW
 
@@ -537,50 +535,24 @@ The vertical axis represents the chain quality metric, i.e., the proportion of b
 
 * q_ave = 1
 
-* Network parameters: default for all four network types
+* Network parameters: identical to that of honest mining
 
----
-
-##### **Impact of Different Miner Chain Selection Strategies on Selfish Mining Attack**
-
-![selfish_mining_2](doc/selfish_mining_2.png){: style="height: 460px"}
-
-The theoretical region in the figure is obtained by the following formula:
-
-$$ R=\frac{\alpha(1-\alpha)^{2}(4\alpha+\gamma(1-2\alpha))-\alpha^{3}}{1-\alpha(1+(2-\alpha)\alpha)} $$
-
-$\alpha$ is the proportion of the attacker's hash power to the total network, $0\leqslant\alpha\leqslant\frac{1}{2}$.
-$\gamma$ is the proportion of honest miners who choose to mine on the attack chain when there is a fork between the honest chain (the latest block is produced by an honest node) and the attack chain (all blocks from a certain block to the latest block are produced by the attacker), $0\leqslant\gamma\leqslant1$.
-Note: The chain selection strategy is an internal test functionality and is not yet available. However, this simulator follows the mining strategy of $\gamma=0$, which means all honest nodes default to continue mining on the honest chain branch. Therefore, users can use the following theoretical curve formula for verification.
+The theoretical curve in the figure is obtained by the following formula:
 
 $$ R=\frac{4\alpha^{2}(1-\alpha)^{2}-\alpha^{3}}{1-\alpha(1+(2-\alpha)\alpha)} $$
-
-**Parameter settings:**
-
-* Simulation rounds: 100000 rounds * 20 times
-
-* Number of miners: 40
-
-* Consensus type: PoW
-
-* Difficulty: 000FFF...
-
-* q_ave = 1
-
-* Network type: SynchronousNetwork
 
 ---
 #### 3. Double Spending Attack
 
 ##### **Impact of Different Networks on Double Spending Attack**
 
-![doublespending](doc/doublespending.png){: style="height: 460px"}
+![doublespending_different_net](doc/doublespending_net.svg){: style="height: 460px"}
 
 **Parameter settings:**
 
-* Simulation rounds: 1200000 rounds * 1 time
+* Simulation rounds: 3000000 rounds
 
-* Number of miners: 40
+* Number of miners: 20
 
 * Consensus type: PoW
 
@@ -588,12 +560,26 @@ $$ R=\frac{4\alpha^{2}(1-\alpha)^{2}-\alpha^{3}}{1-\alpha(1+(2-\alpha)\alpha)} $
 
 * q_ave = 1
 
-* Network parameters: default for all four network types
+* Network parameters: identical to that of honest mining
 
 ---
 ##### **Impact of Different Strategies on Double Spending Attack and Theoretical Comparison**
 
-![double_spending](doc/double_spending.png){: style="height: 460px"}
+![double_spending](doc/doublespending.svg){: style="height: 460px"}
+
+**Parameter settings:**
+
+* Simulation rounds: 3000000 rounds
+
+* Number of miners: 20
+
+* Consensus type: PoW
+
+* Difficulty: 000FFF...
+
+* q_ave = 1
+
+* Network parameters: SynchronousNetwork
 
 The theoretical curve in the figure is obtained by the following formula:
 
@@ -605,37 +591,20 @@ $N$ is the number of blocks the attacker waits for confirmation, i.e., the attac
 $N_g$ indicates that the attacker abandons the current attack when it is $N_g$ blocks behind the honest chain.
 $\beta$ is the ratio of the attacker's hash power to that of the honest miners, $0\leqslant\beta\leqslant1$.
 
-**Parameter settings:**
-
-* Simulation rounds: 3000000 rounds * 1 time
-
-* Number of miners: 40
-
-* Consensus type: PoW
-
-* Difficulty: 000FFF...
-
-* q_ave = 1
-
-* Network type: SynchronousNetwork
-
 ---
 
-#### 4. Eclipse Attack
+#### 4. Eclipsed Double Spending
 
 ##### **Double Spending Attack under Eclipse Attack**
 
-![eclipse1](doc/eclipse1.png){: style="height: 460px"}
+![eclipse_doublespending](doc/eclipse_doublespending.svg){: style="height: 460px"}
 
-The green curve Theory Shift 10% is obtained by shifting the Theory curve to the left by one unit.
-
-![eclipse2](doc/eclipse2.png){: style="height: 460px"}
 
 **Parameter settings:**
 
-* Simulation rounds: 3000000 rounds * 1 time
+* Simulation rounds: 1000000 rounds
 
-* Number of miners: 20
+* Number of miners: 10
 
 * Consensus type: PoW
 
@@ -645,13 +614,13 @@ The green curve Theory Shift 10% is obtained by shifting the Theory curve to the
 
 * Network type: TopologyNetwork
 
-* Network parameters: The Full connect topology, Random connect topology, Eclipse 10% miners, and Eclipse 20% miners in the figure use fixed adjacency matrices to generate the topology network. Their adjacency matrices are $TP_F$, $TP_R$, $TP_1$, and $TP_2$, respectively, and other settings are default.
-    - The $TP_F$ matrix has all elements as 1 except for the diagonal elements which are 0.
-    - The $TP_R$ matrix is a randomly generated topology network.
-    - The $TP_1$ matrix is as shown below (isolated nodes are 18, 19):
-        ![matrix_tp1](doc/matrix_tp1.png)
-    - The $TP_2$ matrix is as shown below (isolated nodes are 16, 17, 18, 19):
-        ![matrix_tp2](doc/matrix_tp2.png)
+* Block size: 0 MB
+
+* Network Parameters: Use the following topology:
+
+    ![eclipse_topology](doc/eclipse_topology.svg)
+
+    The eclipse target is set to node 0, and attackers are designated as nodes 1, 2, 3, 4, etc. In short, node 0 is only connected to attackers, while all other nodes are fully connected.
         
 
 **Note: When setting attackers, please avoid isolated nodes and set them manually.**
