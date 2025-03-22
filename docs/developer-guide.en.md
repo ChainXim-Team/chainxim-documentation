@@ -170,7 +170,7 @@ The Chain class has various methods that can be used to add new blocks, merge ch
 | ShowStructure1                  | -                                                       | -           | Prints the entire multi-way tree with head as the root node to stdout |
 | ShowStructure                   | miner_num:int                                           | -           | Generates blockchain visualisation.svg, showing the round in which each block was generated and the parent-child relationship |
 | ShowStructureWithGraphviz       | -                                                       | -           | Generates a blockchain visualization graph in the blockchain_visualization directory using Graphviz |
-| get_block_interval_distribution | -                                                       | -           | Generates a block interval distribution graph block interval distribution.svg |
+| get_block_interval_distribution | -                                                       | -           | Generates a block interval distribution graph block_interval_distribution.svg |
 | printchain2txt                  | chain_data_url:int                                      | -           | Saves the structure and information of all blocks in the chain to chain_data_url, default is 'Chain Data/chain_data.txt' |
 | CalculateStatistics             | rounds:int                                              | dict        | Generates blockchain statistics and returns the statistics through a dictionary, rounds is the total number of simulation rounds |
 

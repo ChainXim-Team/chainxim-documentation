@@ -167,7 +167,7 @@ Chain类具有多种方法，可以用于添加新区块、合并链、搜索区
 | ShowStructure1                  | -                                                       | -           | 以head为根节点，在stdout打印整个多叉树                       |
 | ShowStructure                   | miner_num:int                                           | -           | 生成blockchain visualisation.svg，显示区块链中每个区块产生的轮次以及父子关系 |
 | ShowStructureWithGraphviz       | -                                                       | -           | 在blockchain_visualization目录下借助Graphviz生成区块链可视化图 |
-| get_block_interval_distribution | -                                                       | -           | 生成出块时间分布图block interval distribution.svg            |
+| get_block_interval_distribution | -                                                       | -           | 生成出块时间分布图block_interval_distribution.svg            |
 | printchain2txt                  | chain_data_url:int                                      | -           | 将链中所有块的结构与信息保存到chain_data_url，默认保存到'Chain Data/chain_data.txt' |
 | CalculateStatistics             | rounds:int                                              | dict        | 生成区块链统计信息，通过字典返回统计信息，rounds为仿真总轮次数 |
 
