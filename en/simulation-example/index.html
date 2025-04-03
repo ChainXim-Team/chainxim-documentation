@@ -1,0 +1,1038 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../developer-guide/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
+    
+    
+      
+        <title>Simulation Examples - ChainXim Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4af4bdda.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#Simulation-Examples" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../" title="ChainXim Documentation" class="md-header__button md-logo" aria-label="ChainXim Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ChainXim Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Simulation Examples
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../simulation-example/" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../" title="ChainXim Documentation" class="md-nav__button md-logo" aria-label="ChainXim Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ChainXim Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ChainXim User Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ChainXim Developer Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Simulation Examples
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Simulation Examples
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#Relationship-between-the-Number-of-Miners-and-Block-Time-in-Synchronous-Network" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relationship between the Number of Miners and Block Time in Synchronous Network
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Double-Spending-Attack-Success-Rate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Double Spending Attack Success Rate
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Fork-Rate-Stale-Block-Rate-Throughput-and-Consistency-under-Different-Maximum-Delays-in-Various-Networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fork Rate, Stale Block Rate, Throughput, and Consistency under Different Maximum Delays in Various Networks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Common-Prefix-Property-of-Blockchain-under-Topology-Network" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Prefix Property of Blockchain under Topology Network
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Fork-Rate-Stale-Block-Rate-Throughput-and-Consistency-under-Different-Block-Sizes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fork Rate, Stale Block Rate, Throughput, and Consistency under Different Block Sizes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Variation-of-Propagation-Delay-with-Block-Size" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variation of Propagation Delay with Block Size
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Attackers-Block-Proportion-under-Different-Attack-Vectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attacker's Block Proportion under Different Attack Vectors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Attacker&#39;s Block Proportion under Different Attack Vectors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-Honest-Mining-Attack" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Honest Mining Attack
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Honest Mining Attack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Impact-of-Four-Different-Networks-on-Honest-Mining-Attack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Impact of Four Different Networks on Honest Mining Attack
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-Selfish-Mining-Attack" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Selfish Mining Attack
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Selfish Mining Attack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Impact-of-Different-Networks-on-Selfish-Mining-Attack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Impact of Different Networks on Selfish Mining Attack
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-Double-Spending-Attack" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Double Spending Attack
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Double Spending Attack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Impact-of-Different-Networks-on-Double-Spending-Attack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Impact of Different Networks on Double Spending Attack
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Impact-of-Different-Strategies-on-Double-Spending-Attack-and-Theoretical-Comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Impact of Different Strategies on Double Spending Attack and Theoretical Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-Eclipsed-Double-Spending" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Eclipsed Double Spending
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Eclipsed Double Spending">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Double-Spending-Attack-under-Eclipse-Attack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Double Spending Attack under Eclipse Attack
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#Relationship-between-the-Number-of-Miners-and-Block-Time-in-Synchronous-Network" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relationship between the Number of Miners and Block Time in Synchronous Network
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Double-Spending-Attack-Success-Rate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Double Spending Attack Success Rate
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Fork-Rate-Stale-Block-Rate-Throughput-and-Consistency-under-Different-Maximum-Delays-in-Various-Networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fork Rate, Stale Block Rate, Throughput, and Consistency under Different Maximum Delays in Various Networks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Common-Prefix-Property-of-Blockchain-under-Topology-Network" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Prefix Property of Blockchain under Topology Network
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Fork-Rate-Stale-Block-Rate-Throughput-and-Consistency-under-Different-Block-Sizes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fork Rate, Stale Block Rate, Throughput, and Consistency under Different Block Sizes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Variation-of-Propagation-Delay-with-Block-Size" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variation of Propagation Delay with Block Size
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Attackers-Block-Proportion-under-Different-Attack-Vectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attacker's Block Proportion under Different Attack Vectors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Attacker&#39;s Block Proportion under Different Attack Vectors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-Honest-Mining-Attack" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Honest Mining Attack
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Honest Mining Attack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Impact-of-Four-Different-Networks-on-Honest-Mining-Attack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Impact of Four Different Networks on Honest Mining Attack
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-Selfish-Mining-Attack" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Selfish Mining Attack
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Selfish Mining Attack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Impact-of-Different-Networks-on-Selfish-Mining-Attack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Impact of Different Networks on Selfish Mining Attack
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-Double-Spending-Attack" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Double Spending Attack
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Double Spending Attack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Impact-of-Different-Networks-on-Double-Spending-Attack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Impact of Different Networks on Double Spending Attack
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Impact-of-Different-Strategies-on-Double-Spending-Attack-and-Theoretical-Comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Impact of Different Strategies on Double Spending Attack and Theoretical Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-Eclipsed-Double-Spending" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Eclipsed Double Spending
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Eclipsed Double Spending">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Double-Spending-Attack-under-Eclipse-Attack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Double Spending Attack under Eclipse Attack
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="Simulation-Examples">Simulation Examples</h1>
+<p>In this document, we perform experiments with ChainXim, depict the results, and compare some of them with theoretical values.</p>
+<h3 id="Relationship-between-the-Number-of-Miners-and-Block-Time-in-Synchronous-Network">Relationship between the Number of Miners and Block Time in Synchronous Network</h3>
+<p>Synchronous Network: X-axis represents the number of miners, Y-axis represents the block time.</p>
+<p><strong>Parameter settings:</strong></p>
+<ul>
+<li>
+<p>Simulation rounds: 200000 rounds * 1 time</p>
+</li>
+<li>
+<p>Number of miners: 10-80</p>
+</li>
+<li>
+<p>Consensus type: PoW</p>
+</li>
+<li>
+<p>Difficulty: 0000FF...</p>
+</li>
+<li>
+<p>q_ave = 10</p>
+</li>
+<li>
+<p>Network parameters: SynchronousNetwork</p>
+</li>
+</ul>
+<p><img alt="block_time" src="../../doc/block_time.png" style="height: 460px" /></p>
+<h3 id="Double-Spending-Attack-Success-Rate">Double Spending Attack Success Rate</h3>
+<p><strong>Parameter settings:</strong></p>
+<ul>
+<li>
+<p>Simulation rounds: 1200000 rounds * 1 time</p>
+</li>
+<li>
+<p>Number of miners: 40</p>
+</li>
+<li>
+<p>Consensus type: PoW</p>
+</li>
+<li>
+<p>Difficulty: 000FFF...</p>
+</li>
+<li>
+<p>q_ave = 1</p>
+</li>
+<li>
+<p>Network parameters: default for all four network types</p>
+</li>
+</ul>
+<p><img alt="double_spend_success_rate" src="../../doc/double_spend_success_rate.png" style="height: 460px" /></p>
+<hr />
+<p><strong>Advanced Performance Display</strong></p>
+<h3 id="Fork-Rate-Stale-Block-Rate-Throughput-and-Consistency-under-Different-Maximum-Delays-in-Various-Networks">Fork Rate, Stale Block Rate, Throughput, and Consistency under Different Maximum Delays in Various Networks</h3>
+<ul>
+<li>Rounds: 100000</li>
+<li>Number of miners: 100</li>
+<li>Consensus type: PoW</li>
+<li>q_ave: 10</li>
+<li>Difficulty: 0002FF...</li>
+<li>Network types: SynchronousNetwork and BoundedDelayNetwork</li>
+<li>Network parameters: rcvprob_start=rcvprob_inc=1/maximum rounds</li>
+</ul>
+<hr />
+<p>Fork rate/Stale block rate and throughput variation with maximum propagation delay</p>
+<p><img alt="latency-throughput" src="../../doc/latency-throughput.svg" style="height: 460px" /></p>
+<hr />
+<p>Consistency metrics variation with maximum propagation delay</p>
+<p><img alt="cp_bounded_delay" src="../../doc/cp_bounded_delay.svg" style="height: 460px" /></p>
+<p>In the figure, Common Prefix[0], [1], [2] represent the first three components of the common prefix PDF, where the ordinal number represents the difference between the common prefix and the main chain length (see the "Simulator Output" section for details).</p>
+<h3 id="Common-Prefix-Property-of-Blockchain-under-Topology-Network">Common Prefix Property of Blockchain under Topology Network</h3>
+<ul>
+<li>Rounds: 16189</li>
+<li>Number of miners: 10</li>
+<li>Consensus type: PoW</li>
+<li>Difficulty: 000FFF...</li>
+<li>Network type: TopologyNetwork</li>
+<li>Network parameters: gen_net_approach=adj; bandwidth_honest=0.5</li>
+</ul>
+<p>At the end of each round, the height difference of the local chains of all nodes relative to the common prefix and its impact on the Common Prefix PDF are shown in the figure below. The time axis below is the round in which the chain tail switch event occurred, the upper x-axis is the block height/common prefix followed by the block length (suffix length), and the y-axis is the miner ID. The heat value in the figure indicates the cumulative number of times each miner's local chain tail reaches the suffix length relative to the common prefix. BXX in the figure refers to the block number, representing the state of the miner's local chain tail in the current round, and the lower x-axis indicates the height of these blocks. Click Play to start the animation, where you can observe the block being generated to extend the common prefix, then propagating to other miners, and finally causing the common prefix height to increase by 1.</p>
+<style>
+    .iframe-body-sty{position: relative;overflow: hidden;height:850px;width: 850px;background-color: white;
+    transform: scale(0.8); transform-origin:0 0; margin-bottom: -170px}
+</style>
+
+<div class="iframe-body-sty">
+<iframe
+ height=850px
+ width=850px
+ src="/chainxim-documentation/doc/cp_pdf.html"  
+ frameborder=0 
+ display:block>
+ </iframe>
+</div>
+
+<h3 id="Fork-Rate-Stale-Block-Rate-Throughput-and-Consistency-under-Different-Block-Sizes">Fork Rate, Stale Block Rate, Throughput, and Consistency under Different Block Sizes</h3>
+<ul>
+<li>Rounds: 500000</li>
+<li>Number of repetitions per point on the curve: 5</li>
+<li>Number of miners: 20</li>
+<li>Consensus type: PoW</li>
+<li>Difficulty: 0000FF...</li>
+<li>Network type: TopologyNetwork</li>
+<li>Network parameters: TTL=500; gen_net_approach=rand; ave_degree=8; bandwidth_honest=0.5; bandwidth_adv=5; block_prop_times_statistic=[0.1, 0.2, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]</li>
+</ul>
+<hr />
+<p>Fork rate/Stale block rate and throughput variation with block size
+<img alt="blocksize_simulation" src="../../doc/blocksize_simulation.png" style="height: 460px" /></p>
+<hr />
+<p>Consistency metrics variation with block size
+<img alt="blocksize_common_prefix" src="../../doc/blocksize_common_prefix.png" style="height: 460px" /></p>
+<p>In the figure, Common Prefix[0], [1], [2] represent the first three components of the common prefix PDF, where the ordinal number represents the difference between the common prefix and the main chain length (see the "Simulator Output" section for details).</p>
+<h3 id="Variation-of-Propagation-Delay-with-Block-Size">Variation of Propagation Delay with Block Size</h3>
+<ul>
+<li>Rounds: 100000</li>
+<li>Number of miners: 100</li>
+<li>Consensus type: PoW</li>
+<li>q_ave: 10</li>
+<li>Difficulty: 00008F...</li>
+<li>Network type: TopologyNetwork</li>
+<li>Network parameters: TTL=500; gen_net_approach=rand; ave_degree=8; bandwidth_honest=0.5; bandwidth_adv=5; block_prop_times_statistic=[0.1, 0.2, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]</li>
+</ul>
+<hr />
+<p>Variation of propagation delay and 90% effective throughput with block size</p>
+<p><img alt="latency_effective_throughput90" src="../../doc/latency_effective_throughput90.svg" style="height: 460px" /></p>
+<p><strong>Note: X% effective throughput = block size / (X% block propagation delay)</strong></p>
+<h3 id="Attackers-Block-Proportion-under-Different-Attack-Vectors">Attacker's Block Proportion under Different Attack Vectors</h3>
+<h4 id="1-Honest-Mining-Attack">1. Honest Mining Attack</h4>
+<p><img alt="honest_mining" src="../../doc/honest_mining.svg" style="height: 460px" /></p>
+<h5 id="Impact-of-Four-Different-Networks-on-Honest-Mining-Attack"><strong>Impact of Four Different Networks on Honest Mining Attack</strong></h5>
+<p>Definition of a successful attack: The attacker produces a block and is accepted by the network.</p>
+<p><strong>Parameter settings:</strong></p>
+<ul>
+<li>
+<p>Rounds: 1000000 rounds</p>
+</li>
+<li>
+<p>Number of miners: 20</p>
+</li>
+<li>
+<p>Consensus type: PoW</p>
+</li>
+<li>
+<p>Difficulty: 000FFF...</p>
+</li>
+<li>
+<p>q_ave = 1</p>
+</li>
+<li>
+<p>Network parameters: <code>blocksize=4</code>, the bandwidth of the edges in <code>TopologyNetwork</code> is <code>2MB/round</code> with dynamic topology enabled. Other network parameters are set to default values.</p>
+</li>
+</ul>
+<hr />
+<h4 id="2-Selfish-Mining-Attack">2. Selfish Mining Attack</h4>
+<h5 id="Impact-of-Different-Networks-on-Selfish-Mining-Attack"><strong>Impact of Different Networks on Selfish Mining Attack</strong></h5>
+<p><img alt="selfish_mining" src="../../doc/selfish_mining.svg" style="height: 460px" /></p>
+<p>The vertical axis represents the chain quality metric, i.e., the proportion of blocks produced by the attacker in the main chain</p>
+<p><strong>Parameter settings:</strong></p>
+<ul>
+<li>
+<p>Simulation rounds: 300000 rounds</p>
+</li>
+<li>
+<p>Number of miners: 20</p>
+</li>
+<li>
+<p>Consensus type: PoW</p>
+</li>
+<li>
+<p>Difficulty: 000FFF...</p>
+</li>
+<li>
+<p>q_ave = 1</p>
+</li>
+<li>
+<p>Network parameters: identical to that of honest mining</p>
+</li>
+</ul>
+<p>The theoretical curve in the figure is obtained by the following formula:</p>
+<div class="arithmatex">\[ R=\frac{4\alpha^{2}(1-\alpha)^{2}-\alpha^{3}}{1-\alpha(1+(2-\alpha)\alpha)} \]</div>
+<hr />
+<h4 id="3-Double-Spending-Attack">3. Double Spending Attack</h4>
+<h5 id="Impact-of-Different-Networks-on-Double-Spending-Attack"><strong>Impact of Different Networks on Double Spending Attack</strong></h5>
+<p><img alt="doublespending_different_net" src="../../doc/doublespending_net.svg" style="height: 460px" /></p>
+<p><strong>Parameter settings:</strong></p>
+<ul>
+<li>
+<p>Simulation rounds: 3000000 rounds</p>
+</li>
+<li>
+<p>Number of miners: 20</p>
+</li>
+<li>
+<p>Consensus type: PoW</p>
+</li>
+<li>
+<p>Difficulty: 000FFF...</p>
+</li>
+<li>
+<p>q_ave = 1</p>
+</li>
+<li>
+<p>Network parameters: identical to that of honest mining</p>
+</li>
+</ul>
+<hr />
+<h5 id="Impact-of-Different-Strategies-on-Double-Spending-Attack-and-Theoretical-Comparison"><strong>Impact of Different Strategies on Double Spending Attack and Theoretical Comparison</strong></h5>
+<p><img alt="double_spending" src="../../doc/doublespending.svg" style="height: 460px" /></p>
+<p><strong>Parameter settings:</strong></p>
+<ul>
+<li>
+<p>Simulation rounds: 3000000 rounds</p>
+</li>
+<li>
+<p>Number of miners: 20</p>
+</li>
+<li>
+<p>Consensus type: PoW</p>
+</li>
+<li>
+<p>Difficulty: 000FFF...</p>
+</li>
+<li>
+<p>q_ave = 1</p>
+</li>
+<li>
+<p>Network parameters: SynchronousNetwork</p>
+</li>
+</ul>
+<p>The theoretical curve in the figure is obtained by the following formula:</p>
+<div class="arithmatex">\[P(N,N_g,\beta)=1-\sum_{n=0}^{N}\begin{pmatrix}n+N-1\\
+n
+\end{pmatrix}\left(\frac{1}{1+\beta}\right)^{N}\left(\frac{\beta}{1+\beta}\right)^{n}\left(\frac{1-\beta^{N-n+1}}{1-\beta^{Ng+1}}\right)\]</div>
+<p><span class="arithmatex">\(N\)</span> is the number of blocks the attacker waits for confirmation, i.e., the attacker will wait for the honest chain to grow by <span class="arithmatex">\(N\)</span> blocks before deciding whether to publish.
+<span class="arithmatex">\(N_g\)</span> indicates that the attacker abandons the current attack when it is <span class="arithmatex">\(N_g\)</span> blocks behind the honest chain.
+<span class="arithmatex">\(\beta\)</span> is the ratio of the attacker's hash power to that of the honest miners, <span class="arithmatex">\(0\leqslant\beta\leqslant1\)</span>.</p>
+<hr />
+<h4 id="4-Eclipsed-Double-Spending">4. Eclipsed Double Spending</h4>
+<h5 id="Double-Spending-Attack-under-Eclipse-Attack"><strong>Double Spending Attack under Eclipse Attack</strong></h5>
+<p><img alt="eclipse_doublespending" src="../../doc/eclipse_doublespending.svg" style="height: 460px" /></p>
+<p><strong>Parameter settings:</strong></p>
+<ul>
+<li>
+<p>Simulation rounds: 1000000 rounds</p>
+</li>
+<li>
+<p>Number of miners: 10</p>
+</li>
+<li>
+<p>Consensus type: PoW</p>
+</li>
+<li>
+<p>Difficulty: 000FFF...</p>
+</li>
+<li>
+<p>q_ave = 1</p>
+</li>
+<li>
+<p>Network type: TopologyNetwork</p>
+</li>
+<li>
+<p>Block size: 0 MB</p>
+</li>
+<li>
+<p>Network Parameters: Use the following topology:</p>
+<p><img alt="eclipse_topology" src="../../doc/eclipse_topology.svg" /></p>
+<p>The eclipse target is set to node 0, and attackers are designated as nodes 1, 2, 3, 4, etc. In short, node 0 is only connected to attackers, while all other nodes are fully connected.</p>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.math"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

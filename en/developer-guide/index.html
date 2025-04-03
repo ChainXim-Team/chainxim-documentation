@@ -1,0 +1,4578 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../simulation-example/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
+    
+    
+      
+        <title>ChainXim Developer Guide - ChainXim Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4af4bdda.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ChainXim-Developer-Guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../" title="ChainXim Documentation" class="md-header__button md-logo" aria-label="ChainXim Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ChainXim Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ChainXim Developer Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../developer-guide/" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../" title="ChainXim Documentation" class="md-nav__button md-logo" aria-label="ChainXim Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ChainXim Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ChainXim User Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    ChainXim Developer Guide
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    ChainXim Developer Guide
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#Framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      Framework
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Environment--Model-Assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment &amp; Model Assumptions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment &amp; Model Assumptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Model-Assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model Assumptions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#DataItem-Mechanism" class="md-nav__link">
+    <span class="md-ellipsis">
+      DataItem Mechanism
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Simulator-Input-Parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simulator Input Parameters
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Simulator Input Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#EnvironmentSettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      EnvironmentSettings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ConsensusSettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConsensusSettings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#AttackModeSettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      AttackModeSettings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#DeterPropNetworkSettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      DeterPropNetworkSettings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#StochPropNetworkSettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      StochPropNetworkSettings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#TopologyNetworkSettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      TopologyNetworkSettings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#AdHocNetworkSettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      AdHocNetworkSettings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#DataItemSettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      DataItemSettings
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Simulator-Output" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simulator Output
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Miner" class="md-nav__link">
+    <span class="md-ellipsis">
+      Miner
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Chain-Data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chain Data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chain Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Message" class="md-nav__link">
+    <span class="md-ellipsis">
+      Message
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#BlockHead" class="md-nav__link">
+    <span class="md-ellipsis">
+      BlockHead
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Block" class="md-nav__link">
+    <span class="md-ellipsis">
+      Block
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chain
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Consensus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consensus
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Consensus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Consensus-Protocol-and-Block" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consensus Protocol and Block
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Initialization-of-the-Consensus-Class" class="md-nav__link">
+    <span class="md-ellipsis">
+      Initialization of the Consensus Class
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Lifecycle-of-Message-Objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lifecycle of Message Objects
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lifecycle of Message Objects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Block-Generation-and-Propagation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Block Generation and Propagation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Block-Reception" class="md-nav__link">
+    <span class="md-ellipsis">
+      Block Reception
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Updating-the-Local-Chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updating the Local Chain
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#How-to-Implement-a-New-Consensus-Protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Implement a New Consensus Protocol
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Network-Interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Interface
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network Interface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Constants-related-to-NetworkInterface" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constants related to NetworkInterface
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Constants related to NetworkInterface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-Forwarding-Strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Forwarding Strategies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-Message-Source" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Message Source
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-Channel-Status" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Channel Status
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#NetworkInterface" class="md-nav__link">
+    <span class="md-ellipsis">
+      NetworkInterface
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Network-Interface-Abstract-Base-Class" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Interface Abstract Base Class
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#NICWithoutTp" class="md-nav__link">
+    <span class="md-ellipsis">
+      NICWithoutTp
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#NICWithTp" class="md-nav__link">
+    <span class="md-ellipsis">
+      NICWithTp
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Network" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Network-Base-Class" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Base Class
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Packet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Packet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SynchronousNetwork" class="md-nav__link">
+    <span class="md-ellipsis">
+      SynchronousNetwork
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#StochPropNetwork" class="md-nav__link">
+    <span class="md-ellipsis">
+      StochPropNetwork
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#DeterPropNetwork" class="md-nav__link">
+    <span class="md-ellipsis">
+      DeterPropNetwork
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#TopologyNetwork" class="md-nav__link">
+    <span class="md-ellipsis">
+      TopologyNetwork
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#AdHocNetwork" class="md-nav__link">
+    <span class="md-ellipsis">
+      AdHocNetwork
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Large-Scale-Fading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Large-Scale Fading
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Large-Scale Fading">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Fading-Model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fading Model
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Attack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attack
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Attack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Interaction-Logic-Between-Attack-Layer-and-Overall-System" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interaction Logic Between Attack Layer and Overall System
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Implemented-Attack-Types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implemented Attack Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Attack-Layer-Code-Structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attack Layer Code Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_adversarypy--adversarypy" class="md-nav__link">
+    <span class="md-ellipsis">
+      _adversary.py &amp; adversary.py
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="_adversary.py &amp; adversary.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-_adversarypy--adversarypy-Attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      &gt;&gt;&gt; _adversary.py &amp; adversary.py Attributes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-_adversarypy--adversarypy-Methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      &gt;&gt;&gt; _adversary.py &amp; adversary.py Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="&gt;&gt;&gt; _adversary.py &amp; adversary.py Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Private-Methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Private Methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Public-Methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Public Methods
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_atomization_behaviorpy--atomization_behaviorpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      _atomization_behavior.py &amp; atomization_behavior.py
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="_atomization_behavior.py &amp; atomization_behavior.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Atomization-Behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      Atomization Behavior
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-1-renew" class="md-nav__link">
+    <span class="md-ellipsis">
+      &gt;&gt;&gt; 1. renew()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-2-mine" class="md-nav__link">
+    <span class="md-ellipsis">
+      &gt;&gt;&gt; 2. mine()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-3-upload" class="md-nav__link">
+    <span class="md-ellipsis">
+      &gt;&gt;&gt; 3. upload()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-4-adopt" class="md-nav__link">
+    <span class="md-ellipsis">
+      &gt;&gt;&gt; 4. adopt()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-5-clear" class="md-nav__link">
+    <span class="md-ellipsis">
+      &gt;&gt;&gt; 5. clear()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-6-wait" class="md-nav__link">
+    <span class="md-ellipsis">
+      &gt;&gt;&gt; 6. wait()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attack_typepy--honest_miningpy-selfish_miningpy-eclipsed_double_spendingpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      attack_type.py &amp; honest_mining.py, selfish_mining.py, eclipsed_double_spending.py
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="attack_type.py &amp; honest_mining.py, selfish_mining.py, eclipsed_double_spending.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-Attributes-in-attack_typepy" class="md-nav__link">
+    <span class="md-ellipsis">
+      &gt;&gt;&gt; Attributes in attack_type.py
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="&gt;&gt;&gt; Attributes in attack_type.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Public-Attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Public Attributes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-Methods-in-attack_typepy" class="md-nav__link">
+    <span class="md-ellipsis">
+      &gt;&gt;&gt; Methods in attack_type.py
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="&gt;&gt;&gt; Methods in attack_type.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Private-Methods_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Private Methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Public-Methods_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Public Methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Abstract-Methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Abstract Methods
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Example-of-HonestMining" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example of HonestMining
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example of HonestMining">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-Renew-Stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      &gt;&gt;&gt; Renew Stage:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-Attack-Stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      &gt;&gt;&gt; Attack Stage:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-Clear-and-Record-Stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      &gt;&gt;&gt; Clear and Record Stage:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Evaluation
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../simulation-example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Simulation Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#Framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      Framework
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Environment--Model-Assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment &amp; Model Assumptions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment &amp; Model Assumptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Model-Assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model Assumptions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#DataItem-Mechanism" class="md-nav__link">
+    <span class="md-ellipsis">
+      DataItem Mechanism
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Simulator-Input-Parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simulator Input Parameters
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Simulator Input Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#EnvironmentSettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      EnvironmentSettings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ConsensusSettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConsensusSettings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#AttackModeSettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      AttackModeSettings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#DeterPropNetworkSettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      DeterPropNetworkSettings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#StochPropNetworkSettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      StochPropNetworkSettings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#TopologyNetworkSettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      TopologyNetworkSettings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#AdHocNetworkSettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      AdHocNetworkSettings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#DataItemSettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      DataItemSettings
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Simulator-Output" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simulator Output
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Miner" class="md-nav__link">
+    <span class="md-ellipsis">
+      Miner
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Chain-Data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chain Data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chain Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Message" class="md-nav__link">
+    <span class="md-ellipsis">
+      Message
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#BlockHead" class="md-nav__link">
+    <span class="md-ellipsis">
+      BlockHead
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Block" class="md-nav__link">
+    <span class="md-ellipsis">
+      Block
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chain
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Consensus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consensus
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Consensus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Consensus-Protocol-and-Block" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consensus Protocol and Block
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Initialization-of-the-Consensus-Class" class="md-nav__link">
+    <span class="md-ellipsis">
+      Initialization of the Consensus Class
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Lifecycle-of-Message-Objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lifecycle of Message Objects
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lifecycle of Message Objects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Block-Generation-and-Propagation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Block Generation and Propagation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Block-Reception" class="md-nav__link">
+    <span class="md-ellipsis">
+      Block Reception
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Updating-the-Local-Chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updating the Local Chain
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#How-to-Implement-a-New-Consensus-Protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Implement a New Consensus Protocol
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Network-Interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Interface
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network Interface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Constants-related-to-NetworkInterface" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constants related to NetworkInterface
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Constants related to NetworkInterface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-Forwarding-Strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Forwarding Strategies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-Message-Source" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Message Source
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-Channel-Status" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Channel Status
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#NetworkInterface" class="md-nav__link">
+    <span class="md-ellipsis">
+      NetworkInterface
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Network-Interface-Abstract-Base-Class" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Interface Abstract Base Class
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#NICWithoutTp" class="md-nav__link">
+    <span class="md-ellipsis">
+      NICWithoutTp
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#NICWithTp" class="md-nav__link">
+    <span class="md-ellipsis">
+      NICWithTp
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Network" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Network-Base-Class" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Base Class
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Packet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Packet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SynchronousNetwork" class="md-nav__link">
+    <span class="md-ellipsis">
+      SynchronousNetwork
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#StochPropNetwork" class="md-nav__link">
+    <span class="md-ellipsis">
+      StochPropNetwork
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#DeterPropNetwork" class="md-nav__link">
+    <span class="md-ellipsis">
+      DeterPropNetwork
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#TopologyNetwork" class="md-nav__link">
+    <span class="md-ellipsis">
+      TopologyNetwork
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#AdHocNetwork" class="md-nav__link">
+    <span class="md-ellipsis">
+      AdHocNetwork
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Large-Scale-Fading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Large-Scale Fading
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Large-Scale Fading">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Fading-Model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fading Model
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Attack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attack
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Attack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Interaction-Logic-Between-Attack-Layer-and-Overall-System" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interaction Logic Between Attack Layer and Overall System
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Implemented-Attack-Types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implemented Attack Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Attack-Layer-Code-Structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attack Layer Code Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_adversarypy--adversarypy" class="md-nav__link">
+    <span class="md-ellipsis">
+      _adversary.py &amp; adversary.py
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="_adversary.py &amp; adversary.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-_adversarypy--adversarypy-Attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      &gt;&gt;&gt; _adversary.py &amp; adversary.py Attributes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-_adversarypy--adversarypy-Methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      &gt;&gt;&gt; _adversary.py &amp; adversary.py Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="&gt;&gt;&gt; _adversary.py &amp; adversary.py Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Private-Methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Private Methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Public-Methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Public Methods
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_atomization_behaviorpy--atomization_behaviorpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      _atomization_behavior.py &amp; atomization_behavior.py
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="_atomization_behavior.py &amp; atomization_behavior.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Atomization-Behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      Atomization Behavior
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-1-renew" class="md-nav__link">
+    <span class="md-ellipsis">
+      &gt;&gt;&gt; 1. renew()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-2-mine" class="md-nav__link">
+    <span class="md-ellipsis">
+      &gt;&gt;&gt; 2. mine()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-3-upload" class="md-nav__link">
+    <span class="md-ellipsis">
+      &gt;&gt;&gt; 3. upload()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-4-adopt" class="md-nav__link">
+    <span class="md-ellipsis">
+      &gt;&gt;&gt; 4. adopt()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-5-clear" class="md-nav__link">
+    <span class="md-ellipsis">
+      &gt;&gt;&gt; 5. clear()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-6-wait" class="md-nav__link">
+    <span class="md-ellipsis">
+      &gt;&gt;&gt; 6. wait()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attack_typepy--honest_miningpy-selfish_miningpy-eclipsed_double_spendingpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      attack_type.py &amp; honest_mining.py, selfish_mining.py, eclipsed_double_spending.py
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="attack_type.py &amp; honest_mining.py, selfish_mining.py, eclipsed_double_spending.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-Attributes-in-attack_typepy" class="md-nav__link">
+    <span class="md-ellipsis">
+      &gt;&gt;&gt; Attributes in attack_type.py
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="&gt;&gt;&gt; Attributes in attack_type.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Public-Attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Public Attributes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-Methods-in-attack_typepy" class="md-nav__link">
+    <span class="md-ellipsis">
+      &gt;&gt;&gt; Methods in attack_type.py
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="&gt;&gt;&gt; Methods in attack_type.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Private-Methods_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Private Methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Public-Methods_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Public Methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Abstract-Methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Abstract Methods
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#Example-of-HonestMining" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example of HonestMining
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example of HonestMining">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-Renew-Stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      &gt;&gt;&gt; Renew Stage:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-Attack-Stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      &gt;&gt;&gt; Attack Stage:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-Clear-and-Record-Stage" class="md-nav__link">
+    <span class="md-ellipsis">
+      &gt;&gt;&gt; Clear and Record Stage:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#Evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Evaluation
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="ChainXim-Developer-Guide">ChainXim Developer Guide</h1>
+<h2 id="Framework">Framework</h2>
+<p>ChainXim is mainly composed of six components: Environment, Miner, Adversary, Network, Consensus, and Blockchain. Among them, the three major components, Consensus, Adversary, and Network, are configurable and replaceable to adapt to different types of consensus protocols, attack vectors, and network models. The relationships between the six abstract components are shown in the figure below:</p>
+<p><img alt="framework" src="../../doc/framework.svg" /></p>
+<p>Each abstract component is implemented by one or more corresponding classes. The Consensus class and the Network class corresponding to Consensus and Network are only abstract classes, and functional classes need to be derived to implement various consensus protocols and network models.</p>
+<p>Currently implemented consensus protocols (all options available for the consensus_type configuration):</p>
+<table>
+<thead>
+<tr>
+<th>Consensus Class (Derived from Consensus)</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>consensus.PoW</td>
+<td>Proof of Work</td>
+</tr>
+<tr>
+<td>consensus.VirtualPoW</td>
+<td>Proof of Work simulated by uniformly distributed random numbers and block generation probability</td>
+</tr>
+<tr>
+<td>consensus.SolidPoW</td>
+<td>Proof of Work with strictly constrained hash calculations per round</td>
+</tr>
+</tbody>
+</table>
+<p>Currently implemented network models (all options available for the network_type configuration):</p>
+<table>
+<thead>
+<tr>
+<th>Network Class (Derived from Network)</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>network.SynchronousNetwork</td>
+<td>Synchronous Network Model</td>
+</tr>
+<tr>
+<td>network.DeterPropNetwork</td>
+<td>Network Model Based on Propagation Vector</td>
+</tr>
+<tr>
+<td>network.StochPropNetwork</td>
+<td>Network Model with Bounded Delay and Increasing Receiving Probability with Rounds</td>
+</tr>
+<tr>
+<td>network.TopologyNetwork</td>
+<td>Complex network model, the topology can be randomly generated.</td>
+</tr>
+</tbody>
+</table>
+<p>Environment is the core of the simulator. Users execute the main program in main.py to start the simulation. The main program initializes the Environment object according to the simulation parameters, calls <code>exec</code> to start the simulation loop, and calls <code>view_and_write</code> to generate the simulation results and write them to the Results folder after the simulation ends.</p>
+<p>ChainXim discretizes time, abstracting it into "rounds" to simulate the behavior of each node in units of rounds. Each round sequentially activates miners to perform consensus operations. After all nodes have been activated once, the <code>diffuse</code> method in the network class is called to transmit messages between miner nodes. (See <strong>Environment &amp; Model Assumptions</strong> section for details)</p>
+<h2 id="Environment--Model-Assumptions">Environment &amp; Model Assumptions</h2>
+<p>The Environment component is the cornerstone of the ChainXim program, supporting the architecture of the simulator system model to interface with the other five major components. It also defines some key parameters in the simulator and encapsulates some functions needed by the other components of the simulator. To facilitate understanding of this part, the model assumptions of ChainXim will be introduced first.</p>
+<h3 id="Model-Assumptions">Model Assumptions</h3>
+<p>The system model design of ChainXim mainly refers to the following paper:</p>
+<ul>
+<li>J. A. Garay, A. Kiayias and N. Leonardos, "The bitcoin backbone protocol: Analysis and applications", Eurocrypt, 2015. <a href="https://eprint.iacr.org/2014/765.pdf">https://eprint.iacr.org/2014/765.pdf</a></li>
+</ul>
+<p>ChainXim divides continuous time into discrete rounds, and all nodes in the network (including honest miners and dishonest attackers) will perform a certain number of operations in each round to compete for the accounting rights and generate and propagate new blocks. The total number of miners in the network is defined as <span class="arithmatex">\(n\)</span>, among which <span class="arithmatex">\(t\)</span> miners belong to dishonest attackers. In each round, all miners are awakened in sequence according to their numbers and take actions based on their identities. Honest miners will strictly follow the consensus protocol to generate blocks; attackers will choose to follow the protocol or launch attacks based on the actual situation. <strong>Note that in each round, the attack module will only be triggered once, and each trigger will perform a complete attack action. In the current version, attackers will be randomly triggered when it is the turn of an attacker in each round. Although the order of awakening different miners is different, there is no actual order within the same round.</strong></p>
+<p>To simulate the specific operations of the above parties in the real blockchain system, ChainXim refers to two important methods proposed in the paper, namely the Random Oracle and Diffuse methods, which are defined in ChainXim as follows:</p>
+<ul>
+<li><strong>Random Oracle</strong>: Taking the PoW consensus as an example, each miner can perform up to <span class="arithmatex">\(q\)</span> hash actions in each round (the <span class="arithmatex">\(q\)</span> value may be different for different miners), i.e., <span class="arithmatex">\(q\)</span> opportunities to perform hash calculations. Each miner will perform <span class="arithmatex">\(q\)</span> random oracle operations, i.e., input a random number into the hash function and verify whether the result is less than the given difficulty value. If the miner successfully finds a result lower than the target value, it is considered that a block has been successfully generated. <strong>Blocks generated by different miners in the same round are considered to be generated simultaneously.</strong></li>
+<li><strong>Diffuse</strong>: When a miner generates a new block, it will upload this block to the network, and the network layer will be responsible for message propagation. The propagation logic will vary depending on the configuration of the network layer. In addition, attackers may choose not to upload the blocks they mined in the current round. Only blocks uploaded to the network layer will be propagated through this method. <strong>In the ChainXim model, it is assumed that miners controlled by attackers have a dedicated communication channel independent of the blockchain system, i.e., once any miner belonging to the attackers receives a block, all miners under the attacker's control will receive the block in the next round.</strong></li>
+</ul>
+<p><strong>Note that the above Diffuse method is implemented in the Network component, while the Random Oracle method is implemented in the Consensus component. The Random Oracle model was initially proposed for the PoW consensus protocol in Bitcoin. To make the simulator compatible with other consensus protocols, such as PBFT, which is a protocol based on interaction, ChainXim will consider overloading this method in the Consensus component in the future.</strong>
+<strong>The exec function in the Environment is set to complete the above two methods at once</strong>: In each round, all miners will be awakened in sequence and perform the Random Oracle method: if the miner is honest, the exec function will call the Consensus component to perform related operations; if the attacker is activated, the Attacker component will be called to perform related operations (the Attacker component will only be called once in each round).
+When all miners have completed their actions, i.e., the round ends, the exec function will execute the Diffuse method in the Network component to propagate blocks in the network. A specific example is shown in the figure below:</p>
+<p><img alt="environment" src="../../doc/environment.png" /></p>
+<p>In this example, <span class="arithmatex">\(n=4\)</span>, <span class="arithmatex">\(t=1\)</span>. When the k-th round (Round <span class="arithmatex">\(k\)</span>) begins, the four miners will be awakened in sequence according to their numbers and complete their <span class="arithmatex">\(q\)</span> actions. Among them, only Miner 2 successfully obtained the accounting rights and propagated the generated block (Diffuse method). Due to different propagation delays, Miner 1 and Miner 3 successfully received the block in round k+1, while Miner 4 received the block in round k+2. No miner completed block generation in round k+1. In round k+2, both Miner 1 and Miner 4 completed block generation, but Miner 4, being an attacker, adopted a selfish mining attack strategy, placing the block generated by the Random Oracle on a private chain and not propagating it to other miners during the Diffuse method. In round k+3, only Miner 4 completed block generation. At this point, in its view, its private chain is longer than the main chain, so it propagates the private chain to other miners through the Diffuse method, causing a fork in the blockchain. In the view of miners who received the private chain, the attacker's chain is the longest valid chain. In round k+4, if Miner 1 or Miner 2 did not receive the private chain and continued mining on the honest main chain, their interests might be harmed.</p>
+<p>In summary, ChainXim effectively abstracts the generation and propagation of blocks in the blockchain network using discrete rounds and limited actions.</p>
+<h3 id="Environment">Environment</h3>
+<p>Overall, the Environment component completes the construction of the overall model. The initialization function sets the basic parameters according to the input parameters, calls other components for their respective initialization, sets <span class="arithmatex">\(n\)</span> miners, selects <span class="arithmatex">\(t\)</span> attackers, configures the global blockchain, network components, attack components, etc., for subsequent operation and evaluation. The main functions in the Environment component and their respective parameters are shown in the table below:</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>envir_create_global_chain</td>
+<td>-</td>
+<td>Create the global blockchain in the Environment component</td>
+</tr>
+<tr>
+<td>exec</td>
+<td>num_rounds:int, max_height:int, process_bar_type:str</td>
+<td>Execute the simulation for the specified number of rounds or height; <code>num_rounds</code> sets the total number of rounds, <code>max_height</code> sets the termination height</td>
+</tr>
+<tr>
+<td>on_round_start</td>
+<td>round:int</td>
+<td>Operations executed at the start of each round, including <code>DataItem</code> generation</td>
+</tr>
+<tr>
+<td>generate_dataitem</td>
+<td>round:int</td>
+<td>Generate <code>DataItem</code> at the specified round</td>
+</tr>
+<tr>
+<td>view</td>
+<td>-</td>
+<td>Output the simulation results in the terminal, including the generated blockchain structure diagram, throughput, growth rate (reflecting chain growth), fork rate, and evaluation of common prefix and chain quality</td>
+</tr>
+<tr>
+<td>view_and_write</td>
+<td>-</td>
+<td>Output the simulation results and save them in a txt file</td>
+</tr>
+<tr>
+<td>assess_common_prefix</td>
+<td>type:str</td>
+<td>Calculate and evaluate the common prefix property of the blockchain, supporting two types of common prefix distributions: <code>pdf</code> and <code>cdf</code></td>
+</tr>
+<tr>
+<td>process_bar</td>
+<td>-</td>
+<td>Display the current simulation progress, outputting a real-time progress bar and percentage in the terminal</td>
+</tr>
+</tbody>
+</table>
+<p>In the table above, envir_create_global_chain initializes and generates a global blockchain. After that, this chain will serve as the global blockchain tree and the global longest valid chain from a global view.
+The main program initializes the Environment object according to the simulation parameters, calls <code>exec</code> to start the simulation loop, and implements the random oracle method and diffusion method described in the paper. For attackers, the corresponding attacking operations needs to be executed through <code>attack_excute</code>. After the simulation ends, <code>view_and_write</code> is called to collect and output the simulation results.</p>
+<h3 id="DataItem-Mechanism">DataItem Mechanism</h3>
+<p>DataItem is an abstraction of on-chain data, with a data structure of 4 bytes for generation round + 4 bytes for a random number.</p>
+<p>When <code>dataitem_enable=True</code> is set in <code>system_config.ini</code>, the DataItem mechanism will be enabled with the following features:</p>
+<ol>
+<li>The TopologyNetwork and AdhocNetwork models will calculate block size and corresponding block propagation delay based on the number of DataItems stored in the block during simulation.</li>
+<li>During the evaluation stage, throughput will be calculated based on the number of DataItems in all blocks in the main chain.</li>
+<li>During the evaluation stage, the attack efficacy of attackers can be assessed based on the proportion of invalid DataItems on the chain (only DataItems generated in the Environment are valid, all others are invalid).</li>
+</ol>
+<p>In the current Environment implementation, each miner will be provided with <code>max_block_capacity</code> DataItems in each round, and miners need to package these DataItems into blocks during mining. Once a miner generates a new block, the Environment will generate new DataItems for miners to use before the start of the next round, ensuring that DataItems are sufficient to fill the block.</p>
+<h2 id="Simulator-Input-Parameters">Simulator Input Parameters</h2>
+<p>The input parameters of the simulator can be specified in two ways: command line and configuration file. Generally, you can modify the configuration file system_config.ini that comes with ChainXim to change the simulation parameters, or you can specify individual simulation parameters through the command line. The command line supports fewer parameters than the configuration file, but once specified, they take precedence over the configuration file. You can view the command line help information by using the command <code>python main.py --help</code>.</p>
+<h3 id="EnvironmentSettings">EnvironmentSettings</h3>
+<p>Configure the simulation environment:</p>
+<table>
+<thead>
+<tr>
+<th>system_config</th>
+<th>Command Line Example</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>total_round</td>
+<td><code>--total_round 50</code></td>
+<td>int</td>
+<td>Total number of simulation rounds</td>
+</tr>
+<tr>
+<td>process_bar_type</td>
+<td><code>--process_bar_type round</code></td>
+<td>str</td>
+<td>Progress bar display style (round or height)</td>
+</tr>
+<tr>
+<td>miner_num</td>
+<td><code>--miner_num 80</code></td>
+<td>int</td>
+<td>Total number of miners in the network</td>
+</tr>
+<tr>
+<td>blocksize</td>
+<td><code>--blocksize 8</code></td>
+<td>float</td>
+<td>Block size, in MB</td>
+</tr>
+<tr>
+<td>consensus_type</td>
+<td><code>--consensus_type consensus.PoW</code></td>
+<td>str</td>
+<td>Consensus type, should be one of <code>consensus.PoW</code>, <code>consensus.VirutalPoW</code>, <br/><code>consensus.SolidPoW</code></td>
+</tr>
+<tr>
+<td>network_type</td>
+<td><code>--network_type network.SynchronousNetwork</code></td>
+<td>str</td>
+<td>Network type, should be one of <code>network.SynchronousNetwork</code>,<br/><code>network.DeterPropNetwork</code>, <code>network.StochPropNetwork</code>,<br/><code>network.TopologyNetwork</code>, <code>network.AdHocNetwork</code></td>
+</tr>
+<tr>
+<td>show_fig</td>
+<td><code>--show_fig</code></td>
+<td>bool</td>
+<td>Whether to display images during the simulation</td>
+</tr>
+<tr>
+<td>show_fig</td>
+<td><code>--show_fig</code></td>
+<td>bool</td>
+<td>Show figures during simulation</td>
+</tr>
+<tr>
+<td>log_level</td>
+<td><code>--log_level error</code></td>
+<td>str</td>
+<td>The level of log files（error, warning, info, or debug）</td>
+</tr>
+<tr>
+<td>compact_outputfile</td>
+<td><code>--no_compact_outputfile</code></td>
+<td>bool</td>
+<td>Whether to simplify log and result output to save disk space<br/>Set to False via <code>--no_compact_outputfile</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="ConsensusSettings">ConsensusSettings</h3>
+<p>Configure consensus protocol parameters:</p>
+<table>
+<thead>
+<tr>
+<th>system_config</th>
+<th>Command Line Example</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>q_ave</td>
+<td><code>--q_ave 5</code></td>
+<td>int</td>
+<td>Average hash rate of a single miner, i.e., the number of hash calculations per round</td>
+</tr>
+<tr>
+<td>q_distr</td>
+<td><code>--q_distr equal</code></td>
+<td>str</td>
+<td>Hash rate distribution mode<br>equal: All miners have the same hash rate;<br>rand: Hash rate follows a Gaussian distribution</td>
+</tr>
+<tr>
+<td>target</td>
+<td>None</td>
+<td>str</td>
+<td>PoW target value in hexadecimal format</td>
+</tr>
+<tr>
+<td>None</td>
+<td><code>--difficulty 12</code></td>
+<td>int</td>
+<td>PoW difficulty represented by the length of the prefix zeros in the binary PoW target value,<br/>converted to the PoW target value in the main program</td>
+</tr>
+<tr>
+<td>average_block_time</td>
+<td><code>--average_block_time 400</code></td>
+<td>int</td>
+<td>The average number of rounds required for the entire network to generate a block, if not zero, then <code>target</code> will be overwritten according to <code>q</code> and <code>miner_num</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="AttackModeSettings">AttackModeSettings</h3>
+<p>Configure attack mode parameters:</p>
+<table>
+<thead>
+<tr>
+<th>system_config</th>
+<th>Command Line Example</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>adver_num</td>
+<td><code>--adver_num 0</code></td>
+<td>int</td>
+<td>Total number of attackers</td>
+</tr>
+<tr>
+<td>adver_lists</td>
+<td>None</td>
+<td>tuple[int]</td>
+<td>Attacker IDs e.g.(1,3,5)</td>
+</tr>
+<tr>
+<td>attack_type</td>
+<td><code>--attack_type SelfishMining</code></td>
+<td>str</td>
+<td>Attack type<br>should be one of <code>HonestMining</code>,<code>SelfishMining</code>,<br /><code>DoubleSpending</code>, <code>EclipsedDoubleSpending</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="DeterPropNetworkSettings">DeterPropNetworkSettings</h3>
+<p>Configure DeterPropNetwork parameters:</p>
+<table>
+<thead>
+<tr>
+<th>system_config</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>prop_vector</td>
+<td>list[float]</td>
+<td>Propagation vector (in list form) e.g. [0.1, 0.2, 0.4, 0.6, 1.0] where the elements represent the proportion of miners receiving the message after (1,2,3...) rounds, the last element must be 1.0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="StochPropNetworkSettings">StochPropNetworkSettings</h3>
+<p>Configure StochPropNetwork parameters:</p>
+<table>
+<thead>
+<tr>
+<th>system_config</th>
+<th>Command Line Example</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rcvprob_start</td>
+<td><code>--rcvprob_start 0.001</code></td>
+<td>float</td>
+<td>Initial message reception probability</td>
+</tr>
+<tr>
+<td>rcvprob_inc</td>
+<td><code>--rcvprob_inc 0.001</code></td>
+<td>float</td>
+<td>Incremental message reception probability per round</td>
+</tr>
+<tr>
+<td>block_prop_times_statistic</td>
+<td>None</td>
+<td>list[float]</td>
+<td>Block propagation times corresponding to the proportion of receiving miners</td>
+</tr>
+</tbody>
+</table>
+<h3 id="TopologyNetworkSettings">TopologyNetworkSettings</h3>
+<p>Configure TopologyNetwork parameters:</p>
+<table>
+<thead>
+<tr>
+<th>system_config</th>
+<th>Command Line Example</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>init_mode</td>
+<td><code>--init_mode rand</code></td>
+<td>str</td>
+<td>Network initialization method, 'adj' adjacency matrix, 'coo' sparse adjacency matrix, 'rand' randomly generated. 'adj' and 'coo' network topologies are given via csv files. 'rand' requires specifying bandwidth, degree, etc.</td>
+</tr>
+<tr>
+<td>bandwidth_honest</td>
+<td><code>--bandwidth_honest 0.5</code></td>
+<td>float</td>
+<td>Network bandwidth between honest miners and between honest miners and attackers, in MB/round</td>
+</tr>
+<tr>
+<td>bandwidth_adv</td>
+<td><code>--bandwidth_adv 5</code></td>
+<td>float</td>
+<td>Bandwidth between attackers, in MB/round</td>
+</tr>
+<tr>
+<td>rand_mode</td>
+<td><code>--rand_mode homogeneous</code></td>
+<td>str</td>
+<td>Random network topology generation mode<br />'homogeneous': Generate network based on ave_degree and try to keep each node's degree the same<br />'binomial': Use Erdős-Rényi algorithm, randomly establish links between nodes with probability <code>ave_degree/(miner_num-1)</code></td>
+</tr>
+<tr>
+<td>ave_degree</td>
+<td><code>--ave_degree 8</code></td>
+<td>float</td>
+<td>When the network generation method is 'rand', set the topology average degree</td>
+</tr>
+<tr>
+<td>stat_prop_times</td>
+<td>None</td>
+<td>list[float]</td>
+<td>Block propagation times corresponding to the proportion of receiving miners</td>
+</tr>
+<tr>
+<td>outage_prob</td>
+<td><code>--outage_prob 0.1</code></td>
+<td>float</td>
+<td>Probability of each link outage per round, messages will be retransmitted in the next round if the link is down</td>
+</tr>
+<tr>
+<td>dynamic</td>
+<td><code>--dynamic</code></td>
+<td>bool</td>
+<td>Whether to make the network dynamic, if dynamic, links between nodes will be added or deleted with a certain probability</td>
+</tr>
+<tr>
+<td>avg_tp_change_interval</td>
+<td>None</td>
+<td>float</td>
+<td>When dynamic=true, set the average round interval for topology changes</td>
+</tr>
+<tr>
+<td>edge_remove_prob</td>
+<td>None</td>
+<td>float</td>
+<td>When dynamic=true, set the probability of removing existing edges during topology changes</td>
+</tr>
+<tr>
+<td>edge_add_prob</td>
+<td>None</td>
+<td>float</td>
+<td>When dynamic=true, set the probability of establishing new connections for non-existing edges during topology changes</td>
+</tr>
+<tr>
+<td>max_allowed_partitions</td>
+<td>None</td>
+<td>int</td>
+<td>When dynamic=true, set the maximum number of partitions allowed during topology changes</td>
+</tr>
+<tr>
+<td>save_routing_graph</td>
+<td><code>--save_routing_graph</code></td>
+<td>bool</td>
+<td>Whether to save the routing propagation graph of each message, recommended to turn off when the network scale is large</td>
+</tr>
+<tr>
+<td>show_label</td>
+<td><code>--show_label</code></td>
+<td>bool</td>
+<td>Whether to display labels on the topology or routing propagation graph, recommended to turn off when the network scale is large</td>
+</tr>
+</tbody>
+</table>
+<h3 id="AdHocNetworkSettings">AdHocNetworkSettings</h3>
+<p>Configure AdHocNetwork parameters:</p>
+<table>
+<thead>
+<tr>
+<th>system_config</th>
+<th>Command Line Example</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>init_mode</td>
+<td><code>--init_mode rand</code></td>
+<td>str</td>
+<td>Network initialization method, only 'rand' is valid for AdhocNetwork</td>
+</tr>
+<tr>
+<td>ave_degree</td>
+<td><code>--ave_degree 3</code></td>
+<td>float</td>
+<td>When the network generation method is 'rand', set the topology average degree</td>
+</tr>
+<tr>
+<td>segment_size</td>
+<td><code>--ave_degree 8</code></td>
+<td>float</td>
+<td>Message segment size; divide the complete message into several segments, each segment takes one round to propagate</td>
+</tr>
+<tr>
+<td>region_width</td>
+<td><code>--region_width 100</code></td>
+<td>float</td>
+<td>Width of the square region, nodes perform Gaussian random walks within this region</td>
+</tr>
+<tr>
+<td>comm_range</td>
+<td><code>--comm_range 30</code></td>
+<td>float</td>
+<td>Node communication range, automatically establish connections between nodes within the communication range</td>
+</tr>
+<tr>
+<td>move_variance</td>
+<td><code>--move_variance 5</code></td>
+<td>float</td>
+<td>Variance of the xy coordinate movement distance when nodes perform Gaussian random walks</td>
+</tr>
+<tr>
+<td>outage_prob</td>
+<td><code>--outage_prob 0.1</code></td>
+<td>float</td>
+<td>Probability of each link outage per round, messages will be retransmitted in the next round if the link is down</td>
+</tr>
+<tr>
+<td>stat_prop_times</td>
+<td>None</td>
+<td>list[float]</td>
+<td>Block propagation times corresponding to the proportion of receiving miners</td>
+</tr>
+</tbody>
+</table>
+<h3 id="DataItemSettings">DataItemSettings</h3>
+<p>Configure DataItem parameters:</p>
+<table>
+<thead>
+<tr>
+<th>system_config</th>
+<th>Command Line Example</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dataitem_enable</td>
+<td><code>--dataitem_enable</code></td>
+<td>bool</td>
+<td>If enabled, data items will be generated and contained in blocks.</td>
+</tr>
+<tr>
+<td>max_block_capacity</td>
+<td><code>--max_block_capacity=10</code></td>
+<td>int</td>
+<td>The maximum number ofdata items that a block can contain. max_block_capacity=0 will disable the dataitem mechanism.</td>
+</tr>
+<tr>
+<td>dataitem_size</td>
+<td><code>--dataitem_size=1</code></td>
+<td>int</td>
+<td>The size of each dataitem in MB.</td>
+</tr>
+<tr>
+<td>dataitem_input_interval</td>
+<td><code>--dataitem_input_interval=0</code></td>
+<td>int</td>
+<td>The interval of dataitem input in rounds. dataitem_input_interval=0 will enable a global dataitem queue.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Simulator-Output">Simulator Output</h2>
+<p>After the simulation ends, the global chain statistics during the simulation will be printed in the terminal. Example:
+<div class="highlight"><pre><span></span><code>Chain Growth Property:
+12 blocks are generated in 3000 rounds, in which 3 are stale blocks.
+Average chain growth in honest miners&#39; chain: 9.0
+Number of Forks: 3
+Fork rate: 0.33333333
+Stale rate: 0.25
+Average block time (main chain): 333.33333333 rounds/block
+Average block time (total): 250.0 rounds/block
+Block throughput (main chain): 0.003 blocks/round
+Throughput in MB (main chain): 0.024 MB/round
+Block throughput (total): 0.004 blocks/round
+Throughput in MB (total): 0.032 MB/round
+
+Chain_Quality Property: {&#39;Honest Block&#39;: 9, &#39;Adversary Block&#39;: 1}
+Ratio of blocks contributed by malicious players: 0.1
+The simulation data of SelfishMining is as follows :
+ {&#39;The proportion of adversary block in the main chain&#39;: &#39;See [Ratio of blocks contributed by malicious players]&#39;, &#39;Theory proportion in SynchronousNetwork&#39;: &#39;0.2731&#39;}
+Double spending success times: 1
+Block propagation times: {0.03: 0, 0.05: 0, 0.08: 0, 0.1: 0, 0.2: 1.111, 0.4: 2.222, 0.5: 3.182, 0.6: 3.455, 0.7: 4.0, 0.8: 4.5, 0.9: 5.4, 0.93: 0, 0.95: 0, 0.98: 0, 1.0: 5.0}
+Count of INV interactions: 257
+Count of full chain synchronization: 25
+Count of data sending: 93
+</code></pre></div>
+The meaning of the simulation results displayed in the terminal is as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Output Item</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number of stale blocks</td>
+<td>Number of stale blocks (blocks not in the main chain)</td>
+</tr>
+<tr>
+<td>Average chain growth in honest miners' chain</td>
+<td>Average chain growth of honest nodes</td>
+</tr>
+<tr>
+<td>Number of Forks</td>
+<td>Number of forks (only counting the main chain)</td>
+</tr>
+<tr>
+<td>Fork rate</td>
+<td>Fork rate = number of heights with forks in the main chain / main chain height</td>
+</tr>
+<tr>
+<td>Stale rate</td>
+<td>Stale rate = number of stale blocks / total number of blocks</td>
+</tr>
+<tr>
+<td>Average block time (main chain)</td>
+<td>Average block time of the main chain = total rounds / main chain length (rounds/block)</td>
+</tr>
+<tr>
+<td>Block throughput (main chain)</td>
+<td>Block throughput of the main chain = main chain length / total rounds</td>
+</tr>
+<tr>
+<td>Throughput in MB (main chain)</td>
+<td>Block throughput of the main chain * block size</td>
+</tr>
+<tr>
+<td>Throughput of valid dataitems</td>
+<td>Throughput of valid data items = valid DataItems in the main chain / total rounds</td>
+</tr>
+<tr>
+<td>Throughput of valid dataitems in MB</td>
+<td>Throughput of valid data items in MB = Throughput of valid data items * size of each DataItem</td>
+</tr>
+<tr>
+<td>Average dataitems per block</td>
+<td>Average size per block (average number of data items * size of each data item)</td>
+</tr>
+<tr>
+<td>Input dataitem rate</td>
+<td>Input rate of data items</td>
+</tr>
+<tr>
+<td>Average block time (total)</td>
+<td>Total average block time = total rounds / total number of blocks generated</td>
+</tr>
+<tr>
+<td>Block throughput (total)</td>
+<td>Total block throughput = total number of blocks generated / total rounds</td>
+</tr>
+<tr>
+<td>Throughput in MB (total)</td>
+<td>= Total block throughput * block size</td>
+</tr>
+<tr>
+<td>common prefix pdf</td>
+<td>PDF obtained from common prefix statistics (statistics of the difference between the common prefix of all honest nodes' chains and the longest chain length at the end of each round, resulting in a probability density distribution)</td>
+</tr>
+<tr>
+<td>Consistency rate</td>
+<td>Consistency metric = common_prefix_pdf[0]</td>
+</tr>
+<tr>
+<td>Chain_Quality Property</td>
+<td>Total number of blocks generated by honest and malicious miners</td>
+</tr>
+<tr>
+<td>Ratio of dataitems contributed by malicious players</td>
+<td>valid DataItems in the main chain / total number of DataItems in the main chain</td>
+</tr>
+<tr>
+<td>Ratio of blocks contributed by malicious players</td>
+<td>Proportion of blocks generated by malicious nodes</td>
+</tr>
+<tr>
+<td>Upper Bound t/(n-t)</td>
+<td>Upper bound of the proportion of blocks generated by malicious nodes (n is the total number of miners, t is the number of malicious miners)</td>
+</tr>
+<tr>
+<td>Block propagation times</td>
+<td>Block propagation times (distribution)</td>
+</tr>
+</tbody>
+</table>
+<p>During the simulation, results, logs, and images are saved in the Results/\&lt;date-time&gt;/ directory, where date-time is the date and time when the simulation starts. The typical file structure of this directory is as follows:
+<div class="highlight"><pre><span></span><code>Results/20230819-232107/
+├── Attack Result
+│   └── Attack Log.txt
+├── Chain Data
+│   ├── chain_data.txt
+│   ├── chain_data0.txt
+│   ├── chain_data1.txt
+│   ├── ......
+├── Network Results
+│   ├── ......
+├── block_interval_distribution.svg
+├── blockchain visualisation.svg
+├── blockchain_visualization
+│   ├── Blockchain Structure.gv
+│   └── Blockchain Structure.gv.svg
+├── evaluation results.txt
+├── events.log
+└── parameters.txt
+</code></pre></div>
+The meaning of the output simulation result files is as follows:</p>
+<table>
+<thead>
+<tr>
+<th>File or Directory</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Attack_log.txt</td>
+<td>Attack log</td>
+</tr>
+<tr>
+<td>Attack_result.txt</td>
+<td>Attack results</td>
+</tr>
+<tr>
+<td>Chain Data/</td>
+<td>Complete data of the global chain and local chains of each miner</td>
+</tr>
+<tr>
+<td>Network Results/</td>
+<td>Network transmission results, such as propagation process (when each miner receives a certain block), network topology, routing process diagrams, etc.</td>
+</tr>
+<tr>
+<td>block_interval_distribution.svg</td>
+<td>block_interval_distribution</td>
+</tr>
+<tr>
+<td>blockchain visualisation.svg</td>
+<td>Blockchain visualization</td>
+</tr>
+<tr>
+<td>blockchain_visualization/</td>
+<td>Blockchain visualization using Graphviz</td>
+</tr>
+<tr>
+<td>evaluation results.txt</td>
+<td>Evaluation results</td>
+</tr>
+<tr>
+<td>events.log</td>
+<td>Simulation process log, recording important events such as block generation, network access, etc.</td>
+</tr>
+<tr>
+<td>parameters.txt</td>
+<td>Simulation environment parameters</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Miner">Miner</h2>
+<p>The Miner component defines the miner class, which is used to create miners and perform related operations. The functions defined in it are shown in the table below:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Parameters</th>
+<th>Returns</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>_join_network</td>
+<td>network:Network</td>
+<td>-</td>
+<td>Miners join the network during network initialization and initialize the network interface</td>
+</tr>
+<tr>
+<td>forward</td>
+<td>msgs:list[Message], msg_source_type:str, forward_strategy:str, spec_targets:list, syncLocalChain:bool</td>
+<td>-</td>
+<td>Forward messages to other nodes through the network interface layer. <code>msgs</code> is the list of messages to be forwarded; <code>msg_source_type</code> is the message source type, <code>SELF_GEN_MSG</code> indicates generated by this miner, <code>OUTER_RCV_MSG</code> indicates received from the network; <code>forward_strategy</code> is the message forwarding strategy; <code>spec_targets</code> is the list of target nodes to forward to if <code>forward_strategy</code> is <code>SPECIFIC</code>; <code>syncLocalChain</code> indicates whether to synchronize the local chain with neighbors, preferably when a new block is generated.</td>
+</tr>
+<tr>
+<td>set_adversary</td>
+<td>_isAdversary:bool</td>
+<td>-</td>
+<td>Set whether each miner is an attacker</td>
+</tr>
+<tr>
+<td>receive</td>
+<td>source:int, msg:Message</td>
+<td>bool</td>
+<td>Process received messages, actually calling the <code>receive</code> method in the consensus component, also record the source of <code>msg</code> in <code>receive_history</code></td>
+</tr>
+<tr>
+<td>launch_consensus</td>
+<td>input:any</td>
+<td>Block|None, bool</td>
+<td>Start the consensus process, actually calling the <code>consensus_process</code> method in the consensus component, returning new messages <code>new_msg</code> (None if no new messages) and a flag <code>msg_available</code> indicating whether there are new messages</td>
+</tr>
+<tr>
+<td>BackboneProtocol</td>
+<td>round:int</td>
+<td>Block|None</td>
+<td>Operations performed by honest miners each round. First, receive information from the network (blockchain update), then call the mining function to try to generate a block. If the blockchain is updated (received a new block or generated a new block), return the new message to the environment component, otherwise return empty</td>
+</tr>
+</tbody>
+</table>
+<p>Considering the scalability of the simulator, the functions defined by the miner component itself are actually very few. Most of the functions are defined in the consensus component and the environment component. This component actually serves as a bridge connecting various components. Miners can only interact with the network through the network interface <code>self._NIC:NetworkInterface</code>. The network interface calls the <code>receive</code> function to pass messages sent by other nodes to the current node, and the current node uses the <code>forward</code> function to send messages to the network interface layer, which then sends the messages to other nodes through the network layer.</p>
+<h2 id="Chain-Data">Chain Data</h2>
+<p>This section introduces the basic data types in ChainXim. All block data generated during the simulation is described by data.BlockHead, data.Block, and data.Chain. The following figure shows the data structure of the blockchain in ChainXim. All Blocks are organized in a multi-way tree, where each pair of parent and child nodes are bidirectionally linked through the parentblock and next attributes in Block. The root and end nodes of the tree are recorded in Chain.head and Chain.last_block, respectively. The Chain object in the figure contains a blockchain with a height of 2. Except for the genesis block <code>Block 0</code>, there are three blocks, with a fork occurring at block height 1. <code>Block 0 - Block 1 - Block 3</code> forms the main chain, and <code>Block 3</code> is the tail of the main chain.</p>
+<p><img alt="blockhead-block-chain" src="../../doc/blockhead-block-chain.svg" /></p>
+<h3 id="Message">Message</h3>
+<p>Message is the base class for all messages generated by miners during mining. Currently, the main message is the Block. The attributes of Message currently only include the message length size, in MB.</p>
+<h3 id="BlockHead">BlockHead</h3>
+<p>BlockHead is used to define the data in the block header. data.BlockHead is an abstract base class, and its calculate_blockhash is an abstract method that needs to be defined in the consensus class by creating a new BlockHead and overriding calculate_blockhash. BlockHead only contains the attributes listed in the table below:</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>prehash</td>
+<td>bytes</td>
+<td>Hash of the previous block</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>int</td>
+<td>Timestamp when the block was created</td>
+</tr>
+<tr>
+<td>content</td>
+<td>bytes</td>
+<td>The data carried in the block. If DataItem is enabled, it is a sequence of DataItems; if DataItem is disabled, it defaults to the block generation round</td>
+</tr>
+<tr>
+<td>miner</td>
+<td>int</td>
+<td>ID of the miner or attacker who generated the block</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note: Since this simulator focuses more on the propagation of blocks in the network, the data stored in the blockchain (transactions, smart contracts, etc.) is abstracted using the content attribute.</strong></p>
+<h3 id="Block">Block</h3>
+<p>Block is used to define the data in the block. In addition to the block header blockhead, it also contains the attributes listed in the table below:</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>str</td>
+<td>The friendly name of the block, formatted as the letter B + a sequence number indicating the order of block generation</td>
+</tr>
+<tr>
+<td>height</td>
+<td>int</td>
+<td>Block height</td>
+</tr>
+<tr>
+<td>blockhash</td>
+<td>bytes</td>
+<td>The block hash automatically calculated when the block is constructed</td>
+</tr>
+<tr>
+<td>isAdversaryBlock</td>
+<td>bool</td>
+<td>Whether the block is generated by an attacker</td>
+</tr>
+<tr>
+<td>isGenesis</td>
+<td>bool</td>
+<td>Whether it is a genesis block</td>
+</tr>
+<tr>
+<td>next</td>
+<td>list[Block]</td>
+<td>A list of references to child blocks</td>
+</tr>
+<tr>
+<td>parentblock</td>
+<td>Block</td>
+<td>Reference to the parent block</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note that the blockhead attribute is read-only and cannot be modified after the Block object is constructed.</strong> In addition, the Block class has two auxiliary methods:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Parameters</th>
+<th>Returns</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>get_height</td>
+<td>-</td>
+<td>int</td>
+<td>Returns Block.height</td>
+</tr>
+<tr>
+<td>calculate_blockhash</td>
+<td>-</td>
+<td>bytes</td>
+<td>Calls blockhead.calculate_blockhash, saves the hash value to blockhash, and returns the value of blockhash</td>
+</tr>
+</tbody>
+</table>
+<p>Finally, to enable the Block object to be transmitted in the Network, the Block class is derived from the Message class.</p>
+<h3 id="Chain">Chain</h3>
+<p>Chain is mainly used to store the root and end nodes of the blockchain and defines a series of functions needed to operate the blockchain. Chain contains the attributes listed in the table below:</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>head</td>
+<td>Stores the genesis block of the blockchain</td>
+</tr>
+<tr>
+<td>last_block</td>
+<td>Reference to the end block of the main chain, which is the longest chain in the multi-way tree for PoW systems</td>
+</tr>
+<tr>
+<td>miner_id</td>
+<td>The ID of the miner or attacker maintaining the blockchain, or None for the global blockchain</td>
+</tr>
+</tbody>
+</table>
+<p>The Chain class has various methods that can be used to add new blocks, merge chains, search for blocks, visualize the blockchain, save blockchain data, and more, as shown in the table below:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Parameters</th>
+<th>Returns</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>search_block</td>
+<td>block: Block</td>
+<td>Block|None</td>
+<td>Searches for the target block in the local block tree, returns the block if found, otherwise returns None</td>
+</tr>
+<tr>
+<td>search_block_by_hash</td>
+<td>blockhash: bytes</td>
+<td>Block|None</td>
+<td>Searches for the target block by hash in the local block tree, returns the block if found, otherwise returns None</td>
+</tr>
+<tr>
+<td>get_last_block</td>
+<td>-</td>
+<td>Block</td>
+<td>Returns Chain.last_block</td>
+</tr>
+<tr>
+<td>set_last_block</td>
+<td>block: Block</td>
+<td>-</td>
+<td>Checks if the block is in the chain, then sets the block as last_block</td>
+</tr>
+<tr>
+<td>add_blocks</td>
+<td>blocks: Block | list[block], <br />insert_point: Block</td>
+<td>Block</td>
+<td>Deep copies the block and adds it to the chain. Blocks can be of type list[Block] or Block, insert_point is the position to insert the block, starting from its back, default is last_block</td>
+</tr>
+<tr>
+<td>ShowStructure1</td>
+<td>-</td>
+<td>-</td>
+<td>Prints the entire multi-way tree with head as the root node to stdout</td>
+</tr>
+<tr>
+<td>ShowStructure</td>
+<td>miner_num:int</td>
+<td>-</td>
+<td>Generates blockchain visualisation.svg, showing the round in which each block was generated and the parent-child relationship</td>
+</tr>
+<tr>
+<td>ShowStructureWithGraphviz</td>
+<td>-</td>
+<td>-</td>
+<td>Generates a blockchain visualization graph in the blockchain_visualization directory using Graphviz</td>
+</tr>
+<tr>
+<td>get_block_interval_distribution</td>
+<td>-</td>
+<td>-</td>
+<td>Generates a block interval distribution graph block_interval_distribution.svg</td>
+</tr>
+<tr>
+<td>printchain2txt</td>
+<td>chain_data_url:int</td>
+<td>-</td>
+<td>Saves the structure and information of all blocks in the chain to chain_data_url, default is 'Chain Data/chain_data.txt'</td>
+</tr>
+<tr>
+<td>CalculateStatistics</td>
+<td>rounds:int</td>
+<td>dict</td>
+<td>Generates blockchain statistics and returns the statistics through a dictionary, rounds is the total number of simulation rounds</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Consensus">Consensus</h2>
+<p>This section introduces the consensus layer architecture of ChainXim, using Proof of Work (PoW) as an example to explain the implementation of consensus protocols in ChainXim. The Consensus class is an abstract class that describes the basic elements of the consensus layer in ChainXim. To implement a consensus protocol in ChainXim, a new consensus class needs to be extended from the Consensus class. The currently implemented consensus class is PoW. The following diagram shows the class diagram illustrating the relationship between PoW and Consensus.</p>
+<p><img alt="consensus-pow" src="../../doc/consensus-pow.svg" /></p>
+<p>Each PoW object contains the following attributes:</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>local_chain</td>
+<td>Chain</td>
+<td>The local chain, which is the blockchain from the vision of a miner, including the main chain and all forks known to the miner</td>
+</tr>
+<tr>
+<td>receive_tape</td>
+<td>list</td>
+<td>The receive queue, where blocks are added when they arrive at the miner, and the queue is cleared after the miner's round ends</td>
+</tr>
+<tr>
+<td>target</td>
+<td>bytes</td>
+<td>The target value for the hash calculation problem in PoW, a block is valid only if its hash is less than this target value</td>
+</tr>
+<tr>
+<td>q</td>
+<td>int</td>
+<td>The number of hash calculations a single miner can perform per round</td>
+</tr>
+</tbody>
+</table>
+<p>The PoW class simulates the block generation and validation behavior in the Proof of Work mechanism through the following methods and resolves forks using the longest chain rule:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Parameters</th>
+<th>Returns</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mining_consensus</td>
+<td>miner_id:int,<br>isadversary:bool,<br>x: Any,<br>round: int</td>
+<td>Block, bool |<br>None, bool</td>
+<td>Executed once per round, modifies the nonce q times to calculate the block hash, if the hash is less than the target value, returns the Block object and True, otherwise returns None and False</td>
+</tr>
+<tr>
+<td>local_state_update</td>
+<td>-</td>
+<td>Block, bool</td>
+<td>Verifies the blocks in receive_tape one by one, merges the blocks into the local chain, finally determines the main chain using the longest chain rule, returns the tail of the main chain and a flag indicating whether the main chain has been updated if the new block is valid but cannot be merged into the local chain due to missing intermediate blocks, it is placed in the cache</td>
+</tr>
+<tr>
+<td>valid_chain</td>
+<td>lastblock: Block</td>
+<td>bool</td>
+<td>Verifies the chain ending with lastblock</td>
+</tr>
+<tr>
+<td>valid_block</td>
+<td>block: Block</td>
+<td>bool</td>
+<td>Verifies whether the block is valid, i.e., whether the block hash is less than the target value</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Consensus-Protocol-and-Block">Consensus Protocol and Block</h3>
+<p>The following diagram shows the inheritance and derivation relationships related to consensus in Chainxim. As shown in the figure, the PoW.BlockHead and PoW.Block classes are subclasses of the Consensus class, derived from data.BlockHead and data.Block. The BlockHead and Block classes of the Consensus class inherit from data.BlockHead and data.Block, respectively, and redefine the initialization interfaces of BlockHead and Block.</p>
+<p><img alt="consensus-block" src="../../doc/consensus-block.svg" /></p>
+<p>Consensus.BlockHead and Consensus.Block are initialized through the following interfaces.</p>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># consensus/consensus_abc.py</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Consensus</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">ABCMeta</span><span class="p">):</span>
+    <span class="k">class</span><span class="w"> </span><span class="nc">BlockHead</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">BlockHead</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preblock</span><span class="p">:</span><span class="n">data</span><span class="o">.</span><span class="n">Block</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">timestamp</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">miner_id</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+
+    <span class="k">class</span><span class="w"> </span><span class="nc">Block</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">Block</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">blockhead</span><span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">BlockHead</span><span class="p">,</span> <span class="n">preblock</span><span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">Block</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">isadversary</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">blocksize_MB</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+</code></pre></div>
+Compared to data.Blockhead and data.Block, the input parameters have changed to some extent, such as replacing prehash with preblock and removing height and blockhash. This hides the underlying details of data.Block and data.BlockHead.
+Taking PoW as an example, when constructing a new Block object, you need to derive the block header of the specific consensus protocol, PoW.BlockHead, and then use the block header blockhead, the previous block preblock, and adversary information isadversary to construct PoW.Block (if necessary, you can add some other parameters, such as block size blocksize_MB). The interface is as follows.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># consensus/pow.py</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PoW</span><span class="p">(</span><span class="n">Consensus</span><span class="p">):</span>
+    <span class="k">class</span><span class="w"> </span><span class="nc">BlockHead</span><span class="p">(</span><span class="n">Consensus</span><span class="o">.</span><span class="n">BlockHead</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preblock</span><span class="p">:</span> <span class="n">Consensus</span><span class="o">.</span><span class="n">Block</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">timestamp</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">miner_id</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span><span class="n">target</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(),</span><span class="n">nonce</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">preblock</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">,</span> <span class="n">content</span><span class="p">,</span> <span class="n">miner_id</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">target</span>  <span class="c1"># Difficulty target</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nonce</span> <span class="o">=</span> <span class="n">nonce</span>  <span class="c1"># Random number</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">calculate_blockhash</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+</code></pre></div>
+<p>As you can see, when initializing PoW.BlockHead, in addition to the input parameters of Consensus.BlockHead, target and nonce are also added. The input parameters inherited from Consensus.BlockHead also inherit default values, and the newly added parameters also need to specify default values. These default values will be useful when generating the genesis block. In addition, the calculate_blockhash method needs to be rewritten according to the block definitions in various consensus protocols.</p>
+<h3 id="Initialization-of-the-Consensus-Class">Initialization of the Consensus Class</h3>
+<p>When initializing the Consensus class, a miner ID is required as a parameter. However, when initializing a consensus class derived from Consensus, additional consensus parameters are generally needed. These parameters are carried by consensus_param, which is specified when constructing the Environment object (refer to the source code) and passed to the consensus object during the initialization of the Miner class. In PoW, consensus_param includes the following three items:</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>target</td>
+<td>str</td>
+<td>The hexadecimal target value for the hash calculation problem in PoW. A block is valid only if its hash value is less than this target value.</td>
+</tr>
+<tr>
+<td>q_ave</td>
+<td>int</td>
+<td>The average number of hash calculations a single miner can perform per round.</td>
+</tr>
+<tr>
+<td>q_distr</td>
+<td>str</td>
+<td>The distribution of the number of hash calculations a single miner can perform per round.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note: The parameter q specifies the maximum number of hash calculations each miner can perform per round, determined by q_distr and q_ave. When q_distr is <code>equal</code>, all miners' q equals q_ave; when q_distr is a stringified array, the element at the index corresponding to miner_id in q_distr is chosen as q (i.e., computing power distribution is assigned according to this array).</strong></p>
+<p>When initializing the consensus class, it is necessary to initialize the local chain Blockchain and generate a genesis block for the local chain. The genesis block is generated by calling the Consensus.create_genesis_block method, with the following interface:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># consensus/consensus_abc.py</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_genesis_block</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chain</span><span class="p">:</span><span class="n">Chain</span><span class="p">,</span> <span class="n">blockheadextra</span><span class="p">:</span><span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">blockextra</span><span class="p">:</span><span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+</code></pre></div>
+<p>The first parameter is an empty chain generated by Chain(), and the latter two dictionary-type parameters can specify additional parameters for the genesis block. The genesis_blockheadextra and genesis_blockextra passed in when constructing the Environment will be passed to this interface. If certain special consensus protocols require specifying parameters for the genesis block, dictionary-type genesis_blockheadextra and genesis_blockextra need to be passed in when constructing the Environment object.</p>
+<p>When generating the genesis block through create_genesis_block, the method first calls self.BlockHead to generate the block header of the genesis block, updates the block header through blockheadextra, generates the genesis block through self.Block, assigns it to self.head, and finally updates the block through blockextra.</p>
+<h3 id="Lifecycle-of-Message-Objects">Lifecycle of Message Objects</h3>
+<p>In the current architecture, ChainXim theoretically supports Message and its derived objects being generated by the consensus object (consensus), transmitted in the network, and processed by the consensus object of the target miner. This section uses PoW as an example to explain how a typical message object—a block—is generated, transmitted, received, verified, and updated to the target miner's local chain in ChainXim.</p>
+<p>The following diagram shows the call relationships between different modules and methods in ChainXim:</p>
+<p><img alt="message-lifecycle" src="../../doc/message-lifecycle.svg" /></p>
+<p>Notably, the six bold methods are worth attention. consensus_process calls mining_consensus to generate a block. The new block is added to the miner's forwarding queue via launch_consensus calling forward. When diffuse is called each round, Miner._NIC.nic_forward is called to send the block into the simulated network to start the simulation. When a miner receives a new block, diffuse calls the miner's receive method to receive the block (the received block is temporarily stored in the reception buffer receive_tape). At the beginning of each round, local_state_update verifies the blocks in receive_tape one by one and updates them to the target miner's local chain. Note that the specific forwarding and receiving process of messages may vary slightly for different network types (see the <a href="#Network">Network</a> section for details).</p>
+<h4 id="Block-Generation-and-Propagation">Block Generation and Propagation</h4>
+<p>When PoW.consensus_process is called, it will call PoW.mining_consensus to perform the so-called "mining" operation. Since each miner's PoW consensus object only has q chances to calculate the hash in one round, each call to mining_consensus generates a block and produces a PoW.Block object with a certain probability. If mining_consensus returns a Block object, PoW.consensus_process adds the Block object to the local chain and then returns a list containing the Block object.</p>
+<p>This list will be passed to the main loop in Environment.exec and then enter the network model for propagation through the network class's access_network. Since the Block class is derived from the Message class, its instances can be propagated in the network class.</p>
+<h4 id="Block-Reception">Block Reception</h4>
+<p>The diffuse method of the network class is called once at the end of each round, and each call advances the propagation progress of the packets in the network. After a certain number of rounds, the Block objects in the network model reach other miners, at which point the Miner.receive method is called, which in turn calls the receive_filter method. This method will route the messages based on their type and call receive_block for the received Block objects to add them to receive_tape.</p>
+<h4 id="Updating-the-Local-Chain">Updating the Local Chain</h4>
+<p>Before BackboneProtocal calls launch_consensus, local_state_update will be called. For PoW consensus, this function's purpose is to verify the blocks cached in receive_tape one by one and merge them into the local chain. If the merged chain is longer than the current main chain, it will be set as the main chain. The verification process is divided into two steps: the first step verifies the block itself, i.e., whether the block hash is less than the target value; the second step checks whether the parent block of the block can be retrieved from the local chain. If it can be retrieved, the valid new block is added to the local chain; otherwise, it is placed in _block_buffer to wait for its parent block to be received. When the parent block in _block_buffer is processed in local_state_update, synthesis_fork is called to merge the branch after this parent block into the local chain.</p>
+<h3 id="How-to-Implement-a-New-Consensus-Protocol">How to Implement a New Consensus Protocol</h3>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">MyConsensus</span><span class="p">(</span><span class="n">Consensus</span><span class="p">):</span>
+</code></pre></div>
+<p>To implement a consensus protocol in ChainXim, you need to derive a consensus class from the Consensus class (taking MyConsensus as an example in this section) and at least override the following subclasses and functions to implement its basic functionality:</p>
+<ul>
+<li>BlockHead: Derived from Consensus.BlockHead, defines the data items related to the consensus protocol in the block header, and needs to override the calculate_blockhash method.</li>
+<li>mining_consensus: Generates new blocks according to the consensus protocol.</li>
+<li>local_state_update: Updates the local chain based on the received blocks.</li>
+<li>valid_chain: Verifies whether the entire blockchain complies with the consensus protocol.</li>
+<li>valid_block: Verifies whether a single block complies with the consensus protocol.</li>
+</ul>
+<p>MyConsensus.BlockHead can refer to the implementation of PoW.BlockHead, reimplementing __init__ and calculate_blockhash to support the new consensus protocol. The Block can directly use the subclass Block inherited from Consensus, or you can derive a new Block subclass in MyConsensus. PoW uses the first method, but if there is data that needs to be passed in the Block but is not directly related to hash calculation, you can use the second method to carry this part of the data through the new Block subclass.</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">class</span><span class="w"> </span><span class="nc">Block</span><span class="p">(</span><span class="n">Consensus</span><span class="o">.</span><span class="n">Block</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">blockhead</span><span class="p">:</span> <span class="n">chain</span><span class="o">.</span><span class="n">BlockHead</span><span class="p">,</span> <span class="n">preblock</span><span class="p">:</span> <span class="n">chain</span><span class="o">.</span><span class="n">Block</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">isadversary</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">blocksize_MB</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">other_params</span><span class="p">):</span>
+            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">blockhead</span><span class="p">,</span> <span class="n">preblock</span><span class="p">,</span> <span class="n">isadversary</span><span class="p">,</span> <span class="n">blocksize_MB</span><span class="p">)</span>
+            <span class="o">...</span>
+</code></pre></div>
+<p>The construction process of the Block object can refer to the "Consensus Protocol and Block" section.</p>
+<p>For consensus mechanisms similar to PoW, since they are relatively simple, you only need to consider the block implementation. However, many consensus protocols are far more complex than proof-of-work. This complexity is reflected in the fact that their consensus process needs to generate messages other than blocks and propagate them in the network, and each miner may have other state variables besides the local chain. To implement such a consensus protocol, you need to extend the objects that can be processed by the consensus layer and the network layer. In ChainXim, this can be achieved by deriving the data.Message class, such as adding ExtraMessage as a subclass of MyConsensus:</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">class</span><span class="w"> </span><span class="nc">ExtraMessage</span><span class="p">(</span><span class="n">network</span><span class="o">.</span><span class="n">Message</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">size</span><span class="p">,</span><span class="o">...</span><span class="p">):</span>
+</code></pre></div>
+<p>Then you can directly construct such objects where ExtraMessage is needed, and these objects can be correctly propagated in the network layer. To ensure that ExtraMessage is correctly received by the consensus object, you need to override the receive method in the MyConsensus class and add the receive_extra_message method, as shown in the following example:</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">receive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">msg</span><span class="p">:</span> <span class="n">Message</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="n">Block</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">receive_block</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="n">ExtraMessage</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">receive_extra_message</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">receive_extra_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">extra_msg</span><span class="p">:</span> <span class="n">ExtraMessage</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">extra_msg_not_received_yet</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">receive_tape</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">extra_msg</span><span class="p">)</span>
+            <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">receive_tape</span><span class="p">)</span> <span class="c1"># Shuffle the receiving order</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+</code></pre></div>
+<p>If the consensus protocol is similar to the proof-of-work mechanism, you can implement the block generation algorithm in the consensus mechanism by referring to PoW.mining_consensus and using MyConsensus.mining_consensus. The interface is as follows:</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">mining_consensus</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Miner_ID</span><span class="p">,</span> <span class="n">isadversary</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="nb">round</span><span class="p">):</span>
+</code></pre></div>
+<p>A more specific implementation can refer to PoW.mining_consensus.</p>
+<p>However, if it is a more complex consensus protocol that needs to generate messages other than blocks in different states, you need to override the Consensus.consensus_process method with MyConsensus.consensus_process to implement a finite state machine, as shown in the example:</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">consensus_process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Miner_ID</span><span class="p">,</span> <span class="n">isadversary</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="nb">round</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="n">STATE1</span><span class="p">:</span>
+            <span class="n">newblock</span><span class="p">,</span> <span class="n">mine_success</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mining_consensus</span><span class="p">(</span><span class="n">Miner_ID</span><span class="p">,</span> <span class="n">isadversary</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="nb">round</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">mine_success</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">local_chain</span><span class="o">.</span><span class="n">add_blocks</span><span class="p">(</span><span class="n">newblock</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">local_chain</span><span class="o">.</span><span class="n">set_last_block</span><span class="p">(</span><span class="n">newblock</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">NEXT_STATE</span>
+                <span class="k">return</span> <span class="p">[</span><span class="n">newblock</span><span class="p">],</span> <span class="kc">True</span> <span class="c1"># Return the mined block</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">False</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="n">STATE2</span><span class="p">:</span>
+            <span class="n">DO_SOMETHING_TO_PRODUCE_EXTRA_MESSAGE</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">NEXT_STATE</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_of_extra_messages</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">list_of_extra_messages</span><span class="p">,</span> <span class="kc">True</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">False</span>
+</code></pre></div>
+<p>Where self.state controls the state of the consensus class instance. In STATE2, if consensus_process generates new messages, it returns a list of ExtraMessage and True; if not, it returns None and False. self.state can be initialized in __init__, as shown in the example:</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">miner_id</span><span class="p">,</span> <span class="n">consensus_param</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">miner_id</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">INITIAL_STATE</span>
+        <span class="o">...</span>
+</code></pre></div>
+<p>MyConsensus.local_state_update needs to update the state of the consensus object based on the Message objects cached in receive_tape, typically updating the local chain based on the incoming blocks. The logic can refer to the following code snippet:</p>
+<p><div class="highlight"><pre><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="nf">local_state_update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">incoming_block</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">receive_tape</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">incoming_block</span><span class="p">,</span> <span class="n">Consensus</span><span class="o">.</span><span class="n">Block</span><span class="p">):</span><span class="c1"># Handle Block</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">valid_block</span><span class="p">(</span><span class="n">incoming_block</span><span class="p">):</span>
+                    <span class="k">continue</span>
+                <span class="n">prehash</span> <span class="o">=</span> <span class="n">incoming_block</span><span class="o">.</span><span class="n">blockhead</span><span class="o">.</span><span class="n">prehash</span>
+                <span class="k">if</span> <span class="n">insert_point</span> <span class="o">:=</span> <span class="bp">self</span><span class="o">.</span><span class="n">local_chain</span><span class="o">.</span><span class="n">search_block_by_hash</span><span class="p">(</span><span class="n">prehash</span><span class="p">):</span>
+                    <span class="n">conj_block</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">local_chain</span><span class="o">.</span><span class="n">add_blocks</span><span class="p">(</span><span class="n">blocks</span><span class="o">=</span><span class="p">[</span><span class="n">incoming_block</span><span class="p">],</span> <span class="n">insert_point</span><span class="o">=</span><span class="n">insert_point</span><span class="p">)</span>
+                    <span class="n">fork_tip</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">synthesize_fork</span><span class="p">(</span><span class="n">conj_block</span><span class="p">)</span>
+                    <span class="n">depthself</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">local_chain</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span>
+                    <span class="n">depth_incoming_block</span> <span class="o">=</span> <span class="n">fork_tip</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span>
+                    <span class="k">if</span> <span class="n">depthself</span> <span class="o">&lt;</span> <span class="n">depth_incoming_block</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">local_chain</span><span class="o">.</span><span class="n">set_last_block</span><span class="p">(</span><span class="n">fork_tip</span><span class="p">)</span>
+                        <span class="n">new_update</span> <span class="o">=</span> <span class="kc">True</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">NEXT_STATE</span> <span class="c1"># State transition upon receiving a new block</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_block_buffer</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">prehash</span><span class="p">,</span> <span class="p">[])</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_block_buffer</span><span class="p">[</span><span class="n">prehash</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">incoming_block</span><span class="p">)</span>
+
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">ExtraMessage</span><span class="p">):</span> <span class="c1"># Handle ExtraMessage</span>
+                <span class="n">DEAL_WITH_OTHER_INCOMING_MESSAGES</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">NEXT_STATE</span> <span class="c1"># State transition upon receiving other messages</span>
+            <span class="k">elif</span> <span class="o">...</span><span class="p">:</span>
+                <span class="o">...</span>
+</code></pre></div>
+The above code processes messages in <code>receive_tape</code> based on their type. If the input is a block, it attempts to verify and merge it into the local chain. Generally, <code>local_state_update</code> needs to call the <code>valid_chain</code> method to verify the chain containing the input block, so you need to implement <code>valid_chain</code> and <code>valid_block</code> methods in <code>MyConsensus</code>. Typically, the <code>valid_chain</code> method checks the <code>prehash</code> of the blocks in the chain to ensure they correctly form a hash chain and calls <code>valid_block</code> to verify each block. You can refer to <code>PoW.valid_chain</code> for writing <code>valid_chain</code>.</p>
+<p>Finally, if you need to make the consensus class <code>MyConsensus</code> configurable, you need to modify the <code>__init__</code> method and add configuration items in <code>system_config.ini</code>. The <code>__init__</code> method can refer to the following example:</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">miner_id</span><span class="p">,</span> <span class="n">consensus_param</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">miner_id</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">INITIAL_STATE</span> <span class="c1"># State initialization</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">consensus_param</span><span class="p">[</span><span class="s1">&#39;param_a&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">consensus_param</span><span class="p">[</span><span class="s1">&#39;param_b&#39;</span><span class="p">])</span> <span class="c1"># Type conversion</span>
+</code></pre></div>
+<p>After modifying <code>__init__</code>, you can add configuration items <code>param_a</code> and <code>param_b</code> in the <code>ConsensusSettings</code> section of <code>system_config.ini</code>. Note that for consensus classes other than <code>consensus.PoW</code>, all configuration items under <code>ConsensusSettings</code> will be passed to <code>MyConsensus</code> as a dictionary through <code>consensus_param</code>. If configured in <code>system_config.ini</code> as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[ConsensusSettings]</span>
+<span class="na">param_a</span><span class="o">=</span><span class="s">value_a</span>
+<span class="na">param_b</span><span class="o">=</span><span class="s">100</span>
+</code></pre></div>
+<p>Then the <code>consensus_param</code> passed to <code>MyConsensus.__init__</code> will be <code>{'param_a':'value_a','param_b':'100'}</code>.</p>
+<p>Currently, ChainXim dynamically imports the consensus class based on the value of the <code>consensus_type</code> configuration item during initialization. If you need to use the <code>MyConsensus</code> class in the simulation, configure <code>system_config.ini</code> as follows:
+<div class="highlight"><pre><span></span><code><span class="na">consensus_type</span><span class="o">=</span><span class="s">consensus.MyConsensus</span>
+</code></pre></div>
+and add a line in <code>consensus/__init__.py</code> (assuming the <code>MyConsensus</code> class is defined in <code>consensus/myconsensus.py</code>):
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">.myconsensus</span><span class="w"> </span><span class="kn">import</span> <span class="n">MyConsensus</span>
+</code></pre></div></p>
+<h2 id="Network-Interface">Network Interface</h2>
+<p>Before introducing the network module, let's first introduce the network interface, defined in <code>./miner/network_interface</code>, which simulates the behavior of a Network Interface Card (NIC) and serves as a communication channel between miners and the network. When a miner is initialized and joins the network, an NIC instance is initialized in the miner based on the network type.
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">_join_network</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">network</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Initialize the network interface&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">network</span><span class="p">,</span> <span class="n">TopologyNetwork</span><span class="p">)</span> <span class="ow">or</span> 
+        <span class="nb">isinstance</span><span class="p">(</span><span class="n">network</span><span class="p">,</span> <span class="n">AdHocNetwork</span><span class="p">)):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_NIC</span> <span class="o">=</span> <span class="n">NICWithTp</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_NIC</span> <span class="o">=</span> <span class="n">NICWithoutTp</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">network</span><span class="p">,</span> <span class="n">AdHocNetwork</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_NIC</span><span class="o">.</span><span class="n">withSegments</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_NIC</span><span class="o">.</span><span class="n">nic_join_network</span><span class="p">(</span><span class="n">network</span><span class="p">)</span>
+</code></pre></div>
+The miner sends messages generated during the consensus process (currently only blocks) to the network through this NIC instance; the network also sends blocks being propagated to the target miner through this NIC instance.
+Depending on the type of network, networks can be divided into two categories: abstract networks without topology information (SynchronousNetwork, StochPropNetwork, DeterPropNetwork) and realistic networks with topology information (TopologyNetwork, AdHocNetwork). Correspondingly, Network Interfaces are divided into two categories: <code>NICWithoutTp</code> and <code>NICWithTp</code>. Both types of network interfaces inherit from the abstract base class <code>NetworkInterface</code>. Before specifically introducing the network interfaces, let's first introduce some constants predefined in <code>./miner/_consts.py</code>.</p>
+<h3 id="Constants-related-to-NetworkInterface">Constants related to NetworkInterface</h3>
+<p>Network interfaces use some constants, which are predefined in the file <code>./miner/_consts.py</code> and mainly divided into the following categories:</p>
+<h4 id="1-Forwarding-Strategies">1. Forwarding Strategies</h4>
+<p>In TopologyNetwork and AdHocNetwork, miners need to specify forwarding strategies for the generated messages. Currently, three strategies are defined:</p>
+<table>
+<thead>
+<tr>
+<th>Constant</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FLOODING</td>
+<td>"flooding"</td>
+<td>Flooding, i.e., forwarding to all neighboring nodes</td>
+</tr>
+<tr>
+<td>SELFISH</td>
+<td>"selfish"</td>
+<td>Selfish forwarding, i.e., no forwarding operation</td>
+</tr>
+<tr>
+<td>SPEC_TARGETS</td>
+<td>"spec_targets"</td>
+<td>Specified forwarding targets</td>
+</tr>
+</tbody>
+</table>
+<h4 id="2-Message-Source">2. Message Source</h4>
+<p>The source of the message indicates whether the message is self-generated or received from the external network. This constant is set mainly because different networks handle messages from different sources differently: abstract networks without topology (SynchronousNetwork, StochPropNetwork, DeterPropNetwork) only forward self-generated messages; while realistic networks with topology (TopologyNetwork, AdHocNetwork) forward messages from both sources.</p>
+<table>
+<thead>
+<tr>
+<th>Constant</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SELF</td>
+<td>"self_generated_msg"</td>
+<td>The message is self-generated</td>
+</tr>
+<tr>
+<td>OUTER</td>
+<td>"msg_from_outer"</td>
+<td>The message is received from the external network</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3-Channel-Status">3. Channel Status</h4>
+<p>Used to mark the channel status in TopologyNetwork and AdHocNetwork.</p>
+<table>
+<thead>
+<tr>
+<th>Constant</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>_IDLE</td>
+<td>"idle"</td>
+<td>The channel is idle</td>
+</tr>
+<tr>
+<td>_BUSY</td>
+<td>"busy"</td>
+<td>The channel is busy with a message being transmitted</td>
+</tr>
+</tbody>
+</table>
+<h3 id="NetworkInterface">NetworkInterface</h3>
+<h3 id="Network-Interface-Abstract-Base-Class">Network Interface Abstract Base Class</h3>
+<p>The abstract base class for network interfaces, defining the abstract interfaces that should be implemented. Located in <code>.\network\nic_abc.py</code>. First, it defines the attributes common to all network interfaces, as well as the abstract methods that each network interface needs to implement.</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>miner</td>
+<td>Miner</td>
+<td>The miner holding this network interface</td>
+</tr>
+<tr>
+<td>miner_id</td>
+<td>int</td>
+<td>The ID of the miner holding this network interface</td>
+</tr>
+<tr>
+<td>_network</td>
+<td>Network</td>
+<td>The network instance in the environment</td>
+</tr>
+<tr>
+<td>_receive_buffer</td>
+<td>list[Packet]</td>
+<td>Buffer for packets received from the network in the current round</td>
+</tr>
+<tr>
+<td>_forward_buffer</td>
+<td>dict[str, list[Block]]</td>
+<td>Queue of messages to be sent to the network (currently only Block); the key indicates the source of the message, OUTER and SELF</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>append_forward_buffer</td>
+<td>msg:Message, type:str, strategy: str, spec_target:list</td>
+<td>Adds the message msg to be forwarded to _forward_buffer, specifying the message type type (OUTER/SELF), forwarding strategy strategy (default FLOODING), and specific target spec_target only effective in SPEC_TARGETS strategy.</td>
+</tr>
+<tr>
+<td>nic_join_network</td>
+<td>network:Network</td>
+<td>Abstract method. Initializes the network interface when the miner is initialized and joins the network.</td>
+</tr>
+<tr>
+<td>nic_receive</td>
+<td>packet: Packet</td>
+<td>Abstract method. Receives packets from the network and passes them to the miner.</td>
+</tr>
+<tr>
+<td>nic_forward</td>
+<td>list[Packet]</td>
+<td>Abstract method. Sends messages in _forward_buffer to the network according to the rules.</td>
+</tr>
+</tbody>
+</table>
+<p>The following methods need to be implemented only by TopologyNetwork and AdHocNetwork:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remove_neighbor</td>
+<td>remove_id:int</td>
+<td>Abstract method. Removes the specified neighbor.</td>
+</tr>
+<tr>
+<td>add_neighbor</td>
+<td>add_id:int</td>
+<td>Abstract method. Adds the specified neighbor.</td>
+</tr>
+<tr>
+<td>reply_getdata</td>
+<td>inv:INVMsg</td>
+<td>Abstract method. Responds to inv messages, requesting missing blocks.</td>
+</tr>
+<tr>
+<td>get_reply</td>
+<td>msg_name, target:int, err:str, round</td>
+<td>Abstract method. The original miner gets the result of the message sent to the target miner, whether it was successful or failed.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="NICWithoutTp">NICWithoutTp</h3>
+<p>The general process of interaction between miners and the network through the network interface is as follows:
+1. When a miner has a message to propagate (generated by its own consensus or received from the external network), it writes the message to be forwarded into the corresponding message queue of the NIC's <code>_forward_buffer</code> through the <code>forward</code> function;
+2. At the end of each round, the network calls the <code>nic_forward</code> function of each miner's NIC during <code>diffuse</code>, sending the messages in <code>_forward_buffer</code> into the network and propagating them according to network rules;
+3. When the network delivers the message to the target miner, it calls the <code>nic_receive</code> function of the target miner's NIC, which is responsible for passing the message to the miner through the <code>receive</code> interface for processing by the consensus layer.</p>
+<p>For network interfaces without topology information, <code>NICWithoutTp</code>, in the above process 2, only the messages generated by itself, i.e., the contents of the <code>SELF</code> message queue in <code>_forward_buffer</code>, are forwarded. The main member methods are as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nic_receive</td>
+<td>packet: Packet</td>
+<td>Receives packets from the network and passes them to the miner.</td>
+</tr>
+<tr>
+<td>nic_forward</td>
+<td>list[Packet]</td>
+<td>Sends the contents of the <code>SELF</code> message queue in <code>_forward_buffer</code> to the network through <code>access_network</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="NICWithTp">NICWithTp</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nic_receive</td>
+<td>packet: Packet</td>
+<td>Receives packets from the network and passes them to the miner.</td>
+</tr>
+<tr>
+<td>nic_forward</td>
+<td>list[Packet]</td>
+<td>Sends the messages in <code>_forward_buffer</code> to the network according to rules, the specific process is introduced later.</td>
+</tr>
+<tr>
+<td>remove_neighbor</td>
+<td>remove_id:int</td>
+<td>Removes the specified neighbor.</td>
+</tr>
+<tr>
+<td>add_neighbor</td>
+<td>add_id:int</td>
+<td>Adds the specified neighbor.</td>
+</tr>
+<tr>
+<td>reply_getdata</td>
+<td>inv:INVMsg</td>
+<td>Responds to <code>inv</code> messages, requesting missing blocks.</td>
+</tr>
+<tr>
+<td>get_reply</td>
+<td>msg_name, target:int, err:str, round</td>
+<td>The original miner gets the result of the message sent to the target miner, whether it was successful or failed.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Network">Network</h2>
+<p>The main function of the network layer is to receive new blocks generated in the environment and transmit them to other miners through certain propagation rules, serving as a communication channel between miners. The network layer is derived from the abstract base class Network to create different types of networks. Currently, the implemented networks include the abstract concept of Synchronous Network, Stochastic Propagation Network, Deterministic Propagation Network, and relatively realistic Topology P2P Network.</p>
+<h3 id="Network-Base-Class">Network Base Class</h3>
+<p>The Network base class defines three interfaces, and external modules can only interact with the network module through these three interfaces. It also specifies the input parameters, which derived classes cannot change.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>set_net_param</td>
+<td>*args, **kargs</td>
+<td>Sets network parameters. The environment class sets network parameters during initialization. The main program loads network parameter information into the environment from the configuration file.</td>
+</tr>
+<tr>
+<td>access_network</td>
+<td>new_msg:list[Message], minerid:int,<br>round:int</td>
+<td>Receives all newly generated message objects into the network, waiting for propagation. It also encapsulates each message object and propagation-related information into a <a href="#BlockPacket">Packet</a>.</td>
+</tr>
+<tr>
+<td>diffuse</td>
+<td>round:int</td>
+<td>The main function. It is called at the end of each round in exec to implement the network's propagation rules.</td>
+</tr>
+</tbody>
+</table>
+<p>Before introducing the specific four types of networks, let's first introduce the message data packet Packet.</p>
+<h3 id="Packet"><span id="BlockPacket">Packet</span></h3>
+<p>After message objects enter the network through access_network, they are encapsulated into Packets, which include propagation-related information in addition to the message objects. Message objects propagate in the network in the form of Packets, and the Packets to be propagated are stored in the network's <strong>network_tape</strong> attribute. Packets have different specific implementations in different network classes. For example:
+- In SynchronousNetwork, it only includes the message object and the miner ID that generated the message;
+- In StochPropNetwork, it also includes the current reception probability;
+- In DeterPropNetwork, it records the propagation vector;
+- In TopologyNetwork, it records the source and target of the message.</p>
+<p>Taking PacketPVNet in TopologyNetwork as an example:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># network/propvec.py</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PacketPVNet</span><span class="p">(</span><span class="n">Packet</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;propagation vector network packet, including routing-related information&#39;&#39;&#39;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">payload</span><span class="p">:</span> <span class="n">Message</span><span class="p">,</span> <span class="n">source_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">round</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">prop_vector</span><span class="p">:</span><span class="nb">list</span><span class="p">,</span> <span class="n">outnetobj</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">source_id</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">payload</span> <span class="o">=</span> <span class="n">payload</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="n">source_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">round</span> <span class="o">=</span> <span class="nb">round</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">outnetobj</span> <span class="o">=</span> <span class="n">outnetobj</span>  <span class="c1"># External network class instance</span>
+        <span class="c1"># Propagation process related</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">received_miners</span><span class="p">:</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">source_id</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">trans_process_dict</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="sa">f</span><span class="s1">&#39;miner </span><span class="si">{</span><span class="n">source_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">:</span> <span class="nb">round</span>
+        <span class="p">}</span>
+        <span class="c1"># Pop the first element each round, recording the remaining propagation vector</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">remain_prop_vector</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">prop_vector</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Next, we introduce how various networks implement the three interfaces.</strong></p>
+<h3 id="SynchronousNetwork">SynchronousNetwork</h3>
+<p>All miners receive newly generated messages at the beginning of the next round, except for the miner who generated the message.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>set_net_param</td>
+<td>*args, **kargs</td>
+<td>No parameters needed for synchronous network</td>
+</tr>
+<tr>
+<td>access_network</td>
+<td>new_msg:list[Message], minerid:int,<br>round:int</td>
+<td>Encapsulate the message object, miner id, and current round into PacketSyncNet and add it to network_tape.</td>
+</tr>
+<tr>
+<td>diffuse</td>
+<td>-</td>
+<td>At the beginning of the next round, all miners receive the packets in network_tape</td>
+</tr>
+</tbody>
+</table>
+<h3 id="StochPropNetwork">StochPropNetwork</h3>
+<p>After new messages enter the network, they are received by miners with an increasing probability each round (delay), and at most, all miners receive the message after the reception probability reaches 1 (bounded).</p>
+<p><strong>Network Parameters</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rcvprob_start（float）</td>
+<td>Initial reception probability. That is, the probability that a miner will receive the message in the next round after it enters the network.</td>
+</tr>
+<tr>
+<td>rcvprob_inc（float）</td>
+<td>The increase in reception probability each round after the message enters the network.</td>
+</tr>
+</tbody>
+</table>
+<p>For example, with rcvprob_start=rcvprob_inc=0.2, all other miners will definitely receive the message within 5 rounds after it enters the network.</p>
+<p><strong>Interface Methods</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>set_net_param</td>
+<td>*args, **kargs</td>
+<td>Set rcvprob_start, rcvprob_inc</td>
+</tr>
+<tr>
+<td>access_network</td>
+<td>new_msg:list[Message], minerid:int,<br>round:int</td>
+<td>Encapsulate the message object, miner id, and current round into PacketBDNet and add it to network_tape. Initialize the reception probability of the packet and record the propagation process.</td>
+</tr>
+<tr>
+<td>diffuse</td>
+<td>round:int</td>
+<td>Each Packet in network_tape is received by miners with an increasing probability, and the current reception probability is updated in PacketBDNet. When all miners have received it, remove it from network_tape and save the propagation process in network log.txt.<br><strong>Note: When sent to an attacker, the other attackers also receive it immediately</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Important Methods</strong></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>record_block_propagation_time</td>
+<td>-</td>
+<td>Record message propagation time</td>
+</tr>
+<tr>
+<td>save_trans_process</td>
+<td>-</td>
+<td>Save propagation process</td>
+</tr>
+</tbody>
+</table>
+<h3 id="DeterPropNetwork">DeterPropNetwork</h3>
+<p>Given a propagation vector, the network sends message objects to a fixed proportion of miners at the beginning of each round.</p>
+<p><strong>Network Parameters</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>prop_vector (list)</td>
+<td>Propagation vector. For example, prop_vector=[0.1, 0.2, 0.4, 0.6, 0.8, 1.0] means that the proportion of miners receiving the message before the next round starts is 0.1, then 0.2 after another round, until all miners receive the message after five rounds.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Interface Methods</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>set_net_param</td>
+<td>*args, **kargs</td>
+<td>Set prop_vector</td>
+</tr>
+<tr>
+<td>access_network</td>
+<td>new_msg:list[Message], minerid:int,<br>round:int</td>
+<td>Encapsulate all new messages, miner id, and current round into data packets (PacketPVNet) and add them to network_tape. Initialize the propagation vector of the data packet and record the propagation process.</td>
+</tr>
+<tr>
+<td>diffuse</td>
+<td>round:int</td>
+<td>According to the propagation vector, propagate the data packet to a fixed proportion of miners in each round.<br><strong>Note: When sent to an attacker, the other attackers also receive it immediately, which may result in an inconsistent receiving proportion at some rounds.</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Important Methods</strong></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>record_block_propagation_time</td>
+<td>-</td>
+<td>Record message propagation time</td>
+</tr>
+<tr>
+<td>save_trans_process</td>
+<td>-</td>
+<td>Save the propagation process</td>
+</tr>
+</tbody>
+</table>
+<h3 id="TopologyNetwork">TopologyNetwork</h3>
+<p>Generate network topology and bandwidth between miners through a CSV file or randomly. After the message enters the network through the miner's network interface, a link is established between the specified source and target for propagation. The transmission time (rounds) of each link is determined by the link bandwidth and block size. The link may be interrupted with a preset outage_prob probability, in which case the sender will resend the message.</p>
+<p><strong>Network Parameters</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>init_mode (str)</td>
+<td>Network initialization method, 'adj' adjacency matrix, 'coo' sparse adjacency matrix, 'rand' randomly generated. The network topology of 'adj' and 'coo' is given by CSV files. 'rand' requires specifying bandwidth, degree, and other parameters.</td>
+</tr>
+<tr>
+<td>outage_prob (float)</td>
+<td>Outage probability of each link</td>
+</tr>
+<tr>
+<td>dynamic (bool)</td>
+<td>Whether the network topology changes dynamically</td>
+</tr>
+<tr>
+<td>avg_tp_change_interval (int)</td>
+<td>When dynamic=true, set the average rounds of topology changes</td>
+</tr>
+<tr>
+<td>edge_remove_prob (float)</td>
+<td>When dynamic=true, set the probability of removing each existing edge during topology changes</td>
+</tr>
+<tr>
+<td>edge_add_prob (float)</td>
+<td>When dynamic=true, set the probability of establishing a new connection for each non-existing edge during topology changes</td>
+</tr>
+<tr>
+<td>max_allowed_partitions (int)</td>
+<td>When dynamic=true, set the maximum number of partitions allowed during topology changes</td>
+</tr>
+<tr>
+<td>ave_degree (int)</td>
+<td>When the network generation method is 'rand', set the average degree of the topology</td>
+</tr>
+<tr>
+<td>bandwidth_adv (float)</td>
+<td>Bandwidth between attackers, in MB/round</td>
+</tr>
+<tr>
+<td>save_routing_graph (bool)</td>
+<td>Whether to save the routing propagation graph of each message. It is recommended to turn it off when the network scale is large</td>
+</tr>
+<tr>
+<td>enable_resume_transfer (bool)</td>
+<td>Whether to enable link interruption recovery. When enable_resume_transfer=True, after a link interruption, the sender will resend only the remaining messages; otherwise, it will resend the entire message. When a link is disconnected due to dynamic topology changes, if it recovers later, the entire message will be resent</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Interface Methods</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>set_net_param</td>
+<td>*args, **kargs</td>
+<td>Set the above network parameters</td>
+</tr>
+<tr>
+<td>access_network</td>
+<td>new_msg:list[Message], minerid:int,<br>round:int</td>
+<td>Encapsulate new messages, miner id, and current round into Packet and add them to network_tape</td>
+</tr>
+<tr>
+<td>diffuse</td>
+<td>round:int</td>
+<td>Diffuse is divided into <strong>receive_process</strong> and <strong>forward_process</strong> parts</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>receive_process</code> sends the propagated msg to the receiver;</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">receive_process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="nb">round</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Receive process&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_active_links</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="n">dead_links</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">link</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_active_links</span><span class="p">):</span>
+        <span class="c1"># Update link delay</span>
+        <span class="k">if</span> <span class="n">link</span><span class="o">.</span><span class="n">delay</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">link</span><span class="o">.</span><span class="n">delay</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="c1"># Determine if the link is interrupted</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">link_outage</span><span class="p">(</span><span class="nb">round</span><span class="p">,</span> <span class="n">link</span><span class="p">):</span>
+            <span class="n">dead_links</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="k">continue</span>
+        <span class="k">if</span> <span class="n">link</span><span class="o">.</span><span class="n">delay</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="c1"># Link propagation completed, target receives the packet</span>
+        <span class="n">link</span><span class="o">.</span><span class="n">target_miner</span><span class="p">()</span><span class="o">.</span><span class="n">_NIC</span><span class="o">.</span><span class="n">nic_receive</span><span class="p">(</span><span class="n">link</span><span class="o">.</span><span class="n">packet</span><span class="p">)</span>
+        <span class="n">link</span><span class="o">.</span><span class="n">source_miner</span><span class="p">()</span><span class="o">.</span><span class="n">_NIC</span><span class="o">.</span><span class="n">get_reply</span><span class="p">(</span>
+            <span class="n">link</span><span class="o">.</span><span class="n">get_block_msg_name</span><span class="p">(),</span><span class="n">link</span><span class="o">.</span><span class="n">target_id</span><span class="p">(),</span> <span class="kc">None</span><span class="p">,</span> <span class="nb">round</span><span class="p">)</span>
+        <span class="n">dead_links</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="c1"># Clean up links that have finished propagation</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dead_links</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_active_links</span> <span class="o">=</span> <span class="p">[</span><span class="n">link</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">link</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_active_links</span><span class="p">)</span> 
+                        <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dead_links</span><span class="p">]</span>
+    <span class="n">dead_links</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+</code></pre></div>
+<ul>
+<li><code>forward_process</code> takes the msg to be propagated from the miner NIC into the network;</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">forward_process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">round</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Forward process&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_miners</span><span class="p">:</span>
+        <span class="n">m</span><span class="o">.</span><span class="n">_NIC</span><span class="o">.</span><span class="n">nic_forward</span><span class="p">(</span><span class="nb">round</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Other Important Methods</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cal_delay</td>
+<td>msg:Message, sourceid:int, targetid:int</td>
+<td>Calculate the delay between two miners, including transmission delay and processing delay. <br>The calculation formula is: <code>delay=trans_delay+process_delay, trans_delay=(blocksize*8)/bandwidth</code></td>
+</tr>
+<tr>
+<td>generate_network</td>
+<td>-</td>
+<td>Generate the network according to network parameters.</td>
+</tr>
+<tr>
+<td>write_routing_to_json</td>
+<td>-</td>
+<td>Whenever a block finishes propagation, record its routing result in a JSON file, including origin_miner and routing_history information.</td>
+</tr>
+<tr>
+<td>gen_routing_gragh_from_json</td>
+<td>-</td>
+<td>Read the routing_history.json file and convert it into a routing_graph.svg image, saved in the Network Routing folder.</td>
+</tr>
+<tr>
+<td>record_block_propagation_time</td>
+<td>-</td>
+<td>Record message propagation time.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="AdHocNetwork">AdHocNetwork</h3>
+<p>Randomly generate node positions in a given square area, set the communication range between nodes, and nodes within the communication range will automatically establish connections and can transmit messages to each other. Each round, nodes perform Gaussian random walks, i.e., adding a zero-mean Gaussian random variable with a given variance to the x and y coordinates, and based on the node communication range, disconnect old connections or establish new connections.
+Each message will be segmented before transmission, and each segment's transmission time is one round. The receiving NIC will only pass the complete message to the consensus layer after receiving all segments.</p>
+<p><strong>Network Parameters</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>init_mode (str)</td>
+<td>Network initialization method, currently only supports random generation</td>
+</tr>
+<tr>
+<td>outage_prob(float)</td>
+<td>Outage probability of each link</td>
+</tr>
+<tr>
+<td>segment_size(float)</td>
+<td>Message segment size</td>
+</tr>
+<tr>
+<td>region_width(int)</td>
+<td>Width of the square area, nodes perform Gaussian random walks within this area</td>
+</tr>
+<tr>
+<td>comm_range(int)</td>
+<td>Node communication distance, nodes within this distance automatically establish connections</td>
+</tr>
+<tr>
+<td>move_variance(float)</td>
+<td>Variance of the xy coordinate movement distance when nodes perform Gaussian random walks</td>
+</tr>
+<tr>
+<td>outage_prob(float)</td>
+<td>Link outage probability</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Interface Methods</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>set_net_param</td>
+<td>*args, **kargs</td>
+<td>Set the above network parameters</td>
+</tr>
+<tr>
+<td>access_network</td>
+<td>new_msg:list[Message], minerid:int,<br>round:int</td>
+<td>Encapsulate new messages, miner id, and current round into Packet and add them to network_tape</td>
+</tr>
+<tr>
+<td>diffuse</td>
+<td>round:int</td>
+<td>Diffuse is divided into <strong>receive_process</strong> and <strong>forward_process</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="Large-Scale-Fading">Large-Scale Fading</h3>
+<h4 id="Fading-Model">Fading Model</h4>
+<p>In AdHoc networks, a large-scale fading model can be enabled to simulate path loss in real wireless networks. When enable_large_scale_fading=True, the system will calculate actual bandwidth based on the distance between nodes.</p>
+<p>The path loss model uses a logarithmic distance model:</p>
+<p><span class="arithmatex">\(L(d) = L(d_0)+10nlg(d/d_0)\)</span></p>
+<p>Where d is the distance between nodes, d0 is the reference distance set to 1% of the communication range, and n is the path loss factor that can be set via path_loss_level (low: n=0.8, medium: n=1.0, high: n=1.2)</p>
+<p>Based on the path loss model, the actual bandwidth between nodes is calculated as:</p>
+<p><span class="arithmatex">\(B\left(d\right) = B\left(d_0\right)·10^{\left(L(d_0)-L(d)\right)/10} = B\left(d_0\right)·\left(d_0/d\right)^n\)</span></p>
+<p>Where B(d0) is the bandwidth at reference distance d0 specified by bandwidth_max parameter, and B(d) is the actual bandwidth at distance d</p>
+<p>The segment_size is determined by bandwidth_max and communication range(Comm_range), set to <code>communication_range/100*bandwidth_max</code>. The number of segments that can be transmitted per round is calculated by rounding up the actual bandwidth divided by segment_size. When channel interruption occurs, all segments being transmitted will be interrupted.</p>
+<p>Large-scale fading performance reference:</p>
+<p>Comm_range = 30   (Reference distance: d0 = Comm_range/100)</p>
+<p>bandwidth_max = 30   (Bandwidth at the reference point)</p>
+<p>path_loss_level = low (n=0.8)</p>
+<p><img alt="large_scale_fading_08" src="../../doc/fading_08.png" style="width: 600px" /></p>
+<p>path_loss_level = medium (n=1)</p>
+<p><img alt="large_scale_fading_10" src="../../doc/fading_10.png" style="width: 600px" /></p>
+<p>path_loss_level = high (n=1.2)</p>
+<p><img alt="large_scale_fading_12" src="../../doc/fading_12.png" style="width: 600px" /></p>
+<h2 id="Attack">Attack</h2>
+<p>Attackers perceive the environment, judge the current situation, and make attack decisions to execute the optimal attack strategy. Currently, the attacker part has not yet implemented dynamic decision-making, and the parameters in system_config.ini need to be modified before running the simulator to set different attack strategies. (Content will be updated after the eclipse attack is fully implemented)</p>
+<h3 id="Interaction-Logic-Between-Attack-Layer-and-Overall-System">Interaction Logic Between Attack Layer and Overall System</h3>
+<p>The following figure shows an example of the operation of the attack module in a certain round. The actual part of the attack module is shown within the dashed box. The t attackers are distributed among the miners (the numbers can be specified in system_config.ini). In each round, the attack module will only be triggered once, and each trigger will perform a complete attack action (for example, in PoW where all miners have the same number of hash calculations q per round, each attack action can perform t<em>q hash calculations). </em><em>In the current version, attackers will be triggered at random positions each round to prevent attackers from being triggered at fixed positions, which could affect fairness.</em>* The attack module mainly interacts with the network and the environment. The main content of interaction with the environment is to perceive the current "situation" and upload blocks to the global chain; the content of interaction with the network is mainly to send blocks to the network. </p>
+<p><img alt="attack" src="../../doc/attack.png" style="height: 500px" /></p>
+<h3 id="Implemented-Attack-Types">Implemented Attack Types</h3>
+<ul>
+<li>Honest Mining</li>
+<li>Selfish Mining</li>
+<li>Double Spending</li>
+<li>Eclipsed Double Spending</li>
+</ul>
+<h3 id="Attack-Layer-Code-Structure">Attack Layer Code Structure</h3>
+<div class="highlight"><pre><span></span><code>├─ attack
+│  ├─ adversary.py
+│  ├─ attack_type
+│  │  ├─ atomization_behavior.py
+│  │  ├─ attack_type.py
+│  │  ├─ double_spending.py
+│  │  ├─ eclipsed_double_spending.py
+│  │  ├─ honest_mining.py
+│  │  ├─ selfish_mining.py
+│  │  └─ _atomization_behavior.py
+│  └─ _adversary.py
+</code></pre></div>
+<h3 id="_adversarypy--adversarypy">_adversary.py &amp; adversary.py</h3>
+<p>_adversary.py provides the abstract parent class Adversary, which is inherited by the Adversary provided in adversary.py. The environment creates an Adversary object, then initializes all Adversary settings based on the environment parameters. This Adversary object acts as the abstraction of all attackers and executes attacks.</p>
+<h4 id="-_adversarypy--adversarypy-Attributes">&gt;&gt;&gt; _adversary.py &amp; adversary.py Attributes</h4>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>__Miner_ID</td>
+<td>int</td>
+<td>Value is -1, unchanged. During initialization, similar to ordinary miners, Adversary also needs to initialize consensus, so a unique ID is required.</td>
+</tr>
+<tr>
+<td>__adver_num</td>
+<td>int</td>
+<td>Records the number of attackers.</td>
+</tr>
+<tr>
+<td>__attack_type</td>
+<td>class: AttackType</td>
+<td>Creates an attack type object based on the settings, defaults to HonestMining if not set.</td>
+</tr>
+<tr>
+<td>__excute_attack</td>
+<td>class: AttackType</td>
+<td>The attack type to be executed</td>
+</tr>
+<tr>
+<td>__adver_ids</td>
+<td>list[int]</td>
+<td>Records the list of attacker IDs.</td>
+</tr>
+<tr>
+<td>__miner_list</td>
+<td>list[class: Miner]</td>
+<td>Records the list of all miners.</td>
+</tr>
+<tr>
+<td>__global_chain</td>
+<td>class: Chain</td>
+<td>Records the current global chain object, created by the environment and passed to Adversary.</td>
+</tr>
+<tr>
+<td>__adver_consensus_param</td>
+<td>dict</td>
+<td>Records the parameters required by the attackers' consensus object in the form of a dict.</td>
+</tr>
+<tr>
+<td>__consensus_type</td>
+<td>class: Consensus</td>
+<td>Creates a consensus object based on the settings.</td>
+</tr>
+<tr>
+<td>__attack_arg</td>
+<td>dict</td>
+<td>Records the attack parameters. (Currently, only DoubleSpending requires this parameter.)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-_adversarypy--adversarypy-Methods">&gt;&gt;&gt; _adversary.py &amp; adversary.py Methods</h4>
+<h5 id="Private-Methods">Private Methods</h5>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Parameters</th>
+<th>Returns</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>__adver_setter()</td>
+<td>**args: any</td>
+<td>None</td>
+<td>Member method automatically executed during the initialization phase when the environment creates the Adversary object, setting all attributes based on the passed parameters.</td>
+</tr>
+<tr>
+<td>__adver_gener()</td>
+<td>None</td>
+<td>__adver_list: list[class: Miner]</td>
+<td>Generates random or specified attackers among all miners based on the settings.</td>
+</tr>
+<tr>
+<td>__consensus_q_init()</td>
+<td>None</td>
+<td>None</td>
+<td>Recalculates the computing power q of the attacker group abstract object Adversary (accumulating the computing power of all attackers).</td>
+</tr>
+<tr>
+<td>__attack_type_init()</td>
+<td>None</td>
+<td>None</td>
+<td>Initializes the attributes of the attack type object, determined by the above attributes.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="Public-Methods">Public Methods</h5>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Parameters</th>
+<th>Returns</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>get_adver_ids()</td>
+<td>None</td>
+<td>__adver_ids: list[int]</td>
+<td>Returns the list of attacker IDs.</td>
+</tr>
+<tr>
+<td>get_adver_num()</td>
+<td>None</td>
+<td>__adver_num: int</td>
+<td>Returns the number of attackers.</td>
+</tr>
+<tr>
+<td>get_attack_type_name()</td>
+<td>None</td>
+<td><strong>attack_type.__class</strong>.<strong>name</strong>: str</td>
+<td>Returns the name of the attack type.</td>
+</tr>
+<tr>
+<td>get_attack_type()</td>
+<td>None</td>
+<td>__attack_type: AttackType</td>
+<td>Returns the attack type object.</td>
+</tr>
+<tr>
+<td>get_eclipse()</td>
+<td>None</td>
+<td>__eclipse: bool</td>
+<td>Returns whether the eclipse attack is enabled.</td>
+</tr>
+<tr>
+<td>get_adver_q()</td>
+<td>None</td>
+<td>__consensus_type.q: int</td>
+<td>Returns the computing power q of the attacker group.</td>
+</tr>
+<tr>
+<td>excute_per_round(round)</td>
+<td>round: int</td>
+<td>None</td>
+<td>The main method of Adversary, executing the attack, will call the corresponding attack type object's member methods.</td>
+</tr>
+<tr>
+<td>get_info()</td>
+<td>None</td>
+<td>None or __attack_type.info_getter()</td>
+<td>Calls the corresponding attack type object's member method to get the current information, usually including success rate (or main chain quality) and the corresponding theoretical value.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_atomization_behaviorpy--atomization_behaviorpy">_atomization_behavior.py &amp; atomization_behavior.py</h3>
+<p>_atomization_behavior.py is the parent class, and atomization_behavior.py inherits from it, implementing specific Atomization Behavior (AB). The parent class is defined because AB has behaviors that must be implemented, providing a behavior standard that forms the basis of the attack. Additional functionalities can be added directly in the inheriting class. Since this inheriting class is a method class without attributes, the following paragraphs details the methods of AB (not in table form).</p>
+<h4 id="Atomization-Behavior">Atomization Behavior</h4>
+<h4 id="-1-renew">&gt;&gt;&gt; 1. renew()</h4>
+<p>The purpose of renew is to update all blockchain states of the attacker: the reference chain, the attack chain, the miner state (including input and its own chain), etc. In the current version, renew only has round as an input parameter, which can be seen as an environmental state. The attacker's receive_tape contains the latest blocks that can be received from the attacker's perspective each round.</p>
+<p>In renew, the attacker iterates through each miner it controls. All miners perform local_state_update like honest miners (see <a href="#How-to-Implement-a-New-Consensus-Protocol">Consensus Section</a>). The dictionary is updated based on the results of local_state_update.</p>
+<p>If there is an update, the newly generated block is updated to the reference chain and the global chain. The former serves as the reference for the attack (the latest chain from the attacker's perspective), and the latter is recorded in the global chain.</p>
+<p>Summary: renew requires at least the following three parts:</p>
+<ul>
+<li>
+<p>Perform local_state_update for each attacker miner.</p>
+</li>
+<li>
+<p>Update the reference chain based on the update results.</p>
+</li>
+<li>
+<p>Record the update results of each round as needed.</p>
+</li>
+</ul>
+<p>If developers want to develop new attack modes, they can adjust the specific content of these three parts or add other functionalities as needed, but these three parts are essential.</p>
+<p>(The decision-making strategy of eclipse attack is relatively complex and will not be elaborated here. Developers who need it can refer to comments in the source code for more details.)</p>
+<h4 id="-2-mine">&gt;&gt;&gt; 2. mine()</h4>
+<p>mine calls the current consensus method and performs the mining function corresponding to the consensus method (i.e., honest mining). In the current version, mine randomly selects one attacker as the "representative" for mining in the current round. Additionally, the source code provides the functionality to specify miners for mining by ID.</p>
+<p>If a block is generated, the attack chain (adver_chain) is updated.</p>
+<p>All attackers are iterated to update the block to the attacker's receive_tape. The purpose is twofold: to allow attackers to share the block directly (received in the next round) and to update the block to the reference chain in the next round.</p>
+<p>The content of the mine module generally does not change significantly because its main function is to call the consensus mining function and update the corresponding blockchain based on the results.</p>
+<h4 id="-3-upload">&gt;&gt;&gt; 3. upload()</h4>
+<p>Upload Adversary's block to the network.
+(The specific logic for determining which blocks to upload can be found in the corresponding comments in the source code.)</p>
+<h4 id="-4-adopt">&gt;&gt;&gt; 4. adopt()</h4>
+<p>adopt is used to update the results of the reference chain (honest_chain) to the attack chain (adver_chain). The attack chain can be seen as a chain jointly maintained by the attack group, rather than the individual chains of each malicious miner, so each malicious miner's local chain needs to be updated.</p>
+<h4 id="-5-clear">&gt;&gt;&gt; 5. clear()</h4>
+<p>Clear the input and communication content of all miners in the attacker. The purpose of designing clear is to eliminate the impact of the current round's input on the next round, so clear should be placed after a series of behaviors.</p>
+<h4 id="-6-wait">&gt;&gt;&gt; 6. wait()</h4>
+<p>wait allows the attack module to wait until the next round to continue running. Therefore, no specific behavior is designed for the wait part, and no actual action will be taken when the attack instance executes these operations.</p>
+<h3 id="attack_typepy--honest_miningpy-selfish_miningpy-eclipsed_double_spendingpy">attack_type.py &amp; honest_mining.py, selfish_mining.py, eclipsed_double_spending.py</h3>
+<h4 id="-Attributes-in-attack_typepy">&gt;&gt;&gt; Attributes in attack_type.py</h4>
+<h5 id="Public-Attributes">Public Attributes</h5>
+<p>Unspecified attributes have the same meaning as previously described.</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>behavior</td>
+<td>class: AtomizationBehavior</td>
+<td>Records the AtomizationBehavior type method class object.</td>
+</tr>
+<tr>
+<td>honest_chain</td>
+<td>class: Chain</td>
+<td>The honest chain updated from the Adversary's perspective. The Adversary generally does not perform additional operations on it other than updating the blocks of honest nodes. It is also the reference for updating adver_chain when the Adversary gives up the attack.</td>
+</tr>
+<tr>
+<td>adver_chain</td>
+<td>class: Chain</td>
+<td>The local chain of the Adversary, which is generally inconsistent with the honest_chain.</td>
+</tr>
+<tr>
+<td>adver_list</td>
+<td>list[class: Miner]</td>
+<td>--------</td>
+</tr>
+<tr>
+<td>eclipsed_list_ids</td>
+<td>list[int]</td>
+<td>--------</td>
+</tr>
+<tr>
+<td>adver_consensus</td>
+<td>class: Consensus</td>
+<td>--------</td>
+</tr>
+<tr>
+<td>attack_arg</td>
+<td>dict</td>
+<td>--------</td>
+</tr>
+</tbody>
+</table>
+<h4 id="-Methods-in-attack_typepy">&gt;&gt;&gt; Methods in attack_type.py</h4>
+<h5 id="Private-Methods_1">Private Methods</h5>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Parameters</th>
+<th>Returns</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>__set_behavior_init()</td>
+<td>None</td>
+<td>None</td>
+<td>Creates an AtomizationBehavior type method class object.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="Public-Methods_1">Public Methods</h5>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Parameters</th>
+<th>Returns</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>set_init()</td>
+<td>adver_list:list[Miner], miner_list:list[Miner], network_type: Network, adver_consensus: Consensus, attack_arg:dict, eclipsed_list_ids:list[int]</td>
+<td>None</td>
+<td>Assigns values to all attributes of the attack type object.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="Abstract-Methods">Abstract Methods</h5>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Parameters</th>
+<th>Returns</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>renew_stage(round)</td>
+<td>round: int</td>
+<td>newest_block: Block, mine_input: any</td>
+<td>Executes the update stage.</td>
+</tr>
+<tr>
+<td>attack_stage(round,mine_input)</td>
+<td>round: int</td>
+<td>None</td>
+<td>Executes the attack stage.</td>
+</tr>
+<tr>
+<td>clear_record_stage(round)</td>
+<td>round: int</td>
+<td>None</td>
+<td>Executes the clear and record stage.</td>
+</tr>
+<tr>
+<td>excute_this_attack_per_round(round)</td>
+<td>round: int</td>
+<td>None</td>
+<td>Executes the current attack.</td>
+</tr>
+<tr>
+<td>info_getter()</td>
+<td>None</td>
+<td>None</td>
+<td>Returns the current attack information.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Example-of-HonestMining">Example of HonestMining</h4>
+<p>The attack is mainly divided into three stages: the renew stage, the attack stage, and the clear and record stage.</p>
+<h5 id="-Renew-Stage">&gt;&gt;&gt; Renew Stage:</h5>
+<p><div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">renew_stage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="nb">round</span><span class="p">):</span>
+    <span class="c1">## 1. renew stage</span>
+    <span class="n">newest_block</span><span class="p">,</span> <span class="n">mine_input</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">behavior</span><span class="o">.</span><span class="n">renew</span><span class="p">(</span><span class="n">miner_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">adver_list</span><span class="p">,</span> \
+                 <span class="n">honest_chain</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">honest_chain</span><span class="p">,</span><span class="nb">round</span> <span class="o">=</span> <span class="nb">round</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">newest_block</span><span class="p">,</span> <span class="n">mine_input</span>
+</code></pre></div>
+As shown in the source code of the renew stage above, the renew stage needs to return two parameters: one is <code>newest_block</code> and the other is <code>mine_input</code>. The renew stage is mainly completed in the <code>renew()</code> method.</p>
+<h5 id="-Attack-Stage">&gt;&gt;&gt; Attack Stage:</h5>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">attack_stage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="nb">round</span><span class="p">,</span><span class="n">mine_input</span><span class="p">):</span>
+    <span class="c1">## 2. attack stage</span>
+    <span class="n">current_miner</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">adver_list</span><span class="p">)</span>       
+    <span class="bp">self</span><span class="o">.</span><span class="n">behavior</span><span class="o">.</span><span class="n">adopt</span><span class="p">(</span><span class="n">adver_chain</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">adver_chain</span><span class="p">,</span> <span class="n">honest_chain</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">honest_chain</span><span class="p">)</span>
+    <span class="n">attack_mine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">behavior</span><span class="o">.</span><span class="n">mine</span><span class="p">(</span><span class="n">miner_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">adver_list</span><span class="p">,</span> <span class="n">current_miner</span> <span class="o">=</span> <span class="n">current_miner</span> \
+                  <span class="p">,</span> <span class="n">miner_input</span> <span class="o">=</span> <span class="n">mine_input</span><span class="p">,</span>\
+                  <span class="n">adver_chain</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">adver_chain</span><span class="p">,</span> \
+                <span class="n">global_chain</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">global_chain</span><span class="p">,</span> <span class="n">consensus</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">adver_consensus</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">attack_mine</span><span class="p">:</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">behavior</span><span class="o">.</span><span class="n">upload</span><span class="p">(</span><span class="n">network_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">network_type</span><span class="p">,</span> <span class="n">adver_chain</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">adver_chain</span><span class="p">,</span> \
+          <span class="n">current_miner</span> <span class="o">=</span> <span class="n">current_miner</span><span class="p">,</span> <span class="nb">round</span> <span class="o">=</span> <span class="nb">round</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">behavior</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+</code></pre></div>
+<p>In the attack stage, Adversary needs to execute <code>adopt()</code>, <code>mine()</code>, <code>upload()</code>, and <code>wait()</code> based on conditions. The specific attack strategy determines how to combine these methods. The HonestMining strategy is very simple: if a block is mined, it is published; otherwise, it waits. Note that even the simplest HonestMining may not interact with the network every round. For more complex strategies like Selfish Mining and Double Spending, the source code is more complex, and you can refer to the source code if needed.</p>
+<h5 id="-Clear-and-Record-Stage">&gt;&gt;&gt; Clear and Record Stage:</h5>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">clear_record_stage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="nb">round</span><span class="p">):</span>
+    <span class="c1">## 3. clear and record stage</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">behavior</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="n">miner_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">adver_list</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">__log</span><span class="p">[</span><span class="s1">&#39;round&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">round</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">__log</span><span class="p">[</span><span class="s1">&#39;honest_chain&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">honest_chain</span><span class="o">.</span><span class="n">lastblock</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39; Height:&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">honest_chain</span><span class="o">.</span><span class="n">lastblock</span><span class="o">.</span><span class="n">height</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">__log</span><span class="p">[</span><span class="s1">&#39;adver_chain&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">adver_chain</span><span class="o">.</span><span class="n">lastblock</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39; Height:&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">adver_chain</span><span class="o">.</span><span class="n">lastblock</span><span class="o">.</span><span class="n">height</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">resultlog2txt</span><span class="p">()</span>
+</code></pre></div>
+<p>This stage is relatively simple, mainly calling the <code>clear()</code> method to clear redundant data inside the miners and recording some necessary information in the log dictionary.</p>
+<h2 id="Evaluation">Evaluation</h2>
+<p>After <code>Environment.exec</code> is completed, <code>Environment.view_and_write</code> will be executed to evaluate and output the simulation results.</p>
+<ul>
+<li>
+<p><code>view_and_write</code> first calls <code>view</code> to obtain statistical data and output the results to the command line.</p>
+</li>
+<li>
+<p><code>view</code> will call the <code>CalculateStatistics</code> function in the <code>global_chain</code> to perform data statistics on the global blockchain tree structure and update the results to the dictionary variable <code>stat</code>.</p>
+</li>
+<li>
+<p>Then, the global blockchain will be statistically analyzed from three dimensions: common prefix, chain quality, and chain growth. These three parts are implemented by the corresponding functions in <code>external.py</code>.</p>
+</li>
+<li>
+<p>Secondly, the <code>cal_block_propagation_times</code> function in the network is called to obtain network-related statistical parameters.</p>
+</li>
+<li>
+<p>Finally, <code>view_and_write</code> outputs the evaluation results to a file.</p>
+</li>
+</ul>
+<p>The following is an explanation of the statistical parameters in <code>stat</code>, which correspond to the final output results of the simulator (see the user manual for details):</p>
+<table>
+<thead>
+<tr>
+<th>Dictionary Entry</th>
+<th>Explanation/Calculation Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>num_of_generated_blocks</td>
+<td>Total number of generated blocks</td>
+</tr>
+<tr>
+<td>num_of_valid_blocks</td>
+<td>Total number of blocks in the main chain (main chain length)</td>
+</tr>
+<tr>
+<td>num_of_stale_blocks</td>
+<td>Number of stale blocks (blocks not in the main chain)</td>
+</tr>
+<tr>
+<td>stale_rate</td>
+<td>Stale block rate = number of stale blocks / total number of blocks</td>
+</tr>
+<tr>
+<td>num_of_forks</td>
+<td>Number of forks (in the main chain)</td>
+</tr>
+<tr>
+<td>fork_rate</td>
+<td>Fork rate = number of heights with forks in the main chain / main chain height</td>
+</tr>
+<tr>
+<td>average_block_time_main</td>
+<td>Average block time in the main chain = total rounds / main chain length</td>
+</tr>
+<tr>
+<td>block_throughput_main</td>
+<td>Block throughput in the main chain = main chain length / total rounds</td>
+</tr>
+<tr>
+<td>throughput_main_MB</td>
+<td>= block throughput in the main chain * block size</td>
+</tr>
+<tr>
+<td>valid_dataitem_throughput</td>
+<td>Throughput of valid data items = valid DataItems in the main chain / total rounds</td>
+</tr>
+<tr>
+<td>block_average_size</td>
+<td>Average size per block (average number of data items * size of each data item)</td>
+</tr>
+<tr>
+<td>input_dataitem_rate</td>
+<td>Input rate of data items</td>
+</tr>
+<tr>
+<td>average_block_time_total</td>
+<td>Total average block time = total rounds / total number of generated blocks</td>
+</tr>
+<tr>
+<td>block_throughput_total</td>
+<td>Total block throughput = total number of generated blocks / total rounds</td>
+</tr>
+<tr>
+<td>throughput_total_MB</td>
+<td>= total block throughput * block size</td>
+</tr>
+<tr>
+<td>total_round</td>
+<td>Total number of rounds run</td>
+</tr>
+<tr>
+<td>common_prefix_pdf</td>
+<td>PDF obtained by statistically analyzing the common prefix (probability density distribution obtained by counting the difference between the common prefix of the chains of all honest nodes and the length of the longest chain at the end of each round)</td>
+</tr>
+<tr>
+<td>consistency_rate</td>
+<td>Consistency index = common_prefix_pdf[0]</td>
+</tr>
+<tr>
+<td>average_chain_growth_in_honest_miners'_chain</td>
+<td>Average increase in the length of the chains of honest miners</td>
+</tr>
+<tr>
+<td>chain_quality_property</td>
+<td>Chain quality dictionary, recording the number of blocks produced by honest nodes and malicious nodes</td>
+</tr>
+<tr>
+<td>valid_dataitem_rate</td>
+<td>Ratio of dataitems contributed by malicious players = valid DataItems in the main chain / total number of DataItems in the main chain</td>
+</tr>
+<tr>
+<td>ratio_of_blocks_contributed_by_malicious_players</td>
+<td>Proportion of blocks produced by malicious nodes</td>
+</tr>
+<tr>
+<td>upper_bound t/(n-t)</td>
+<td>Upper bound of the proportion of blocks produced by malicious nodes (n is the total number of miners, t is the number of malicious miners)</td>
+</tr>
+<tr>
+<td>block_propagation_times</td>
+<td>Block propagation time (distribution)</td>
+</tr>
+</tbody>
+</table>
+<p>Regarding the explanation of the three indicators of common prefix, chain quality, and chain growth:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Common Prefix</td>
+<td>When the computing power of malicious nodes does not exceed a certain proportion, the blockchain maintained by honest miners always has a long common prefix (the remaining part (prefix) after truncating any two honest miners' chains is always the same)</td>
+</tr>
+<tr>
+<td>Chain Quality</td>
+<td>In any sufficiently long segment of the chain of honest miners, the proportion of blocks produced by malicious miners will not exceed t/(n-t) (n is the total number of miners, t is the number of malicious miners)</td>
+</tr>
+<tr>
+<td>Chain Growth</td>
+<td>The chain of honest miners always grows at least at a certain rate</td>
+</tr>
+</tbody>
+</table>
+<p>The corresponding implementations in <code>external.py</code> are as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Parameters</th>
+<th>Returns</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>common_prefix</td>
+<td>prefix1:Block, prefix2:Chain</td>
+<td>common_prefix: Block</td>
+<td>Calculate the common prefix of two blockchains</td>
+</tr>
+<tr>
+<td>chain_quality</td>
+<td>blockchain:Chain</td>
+<td>cq_dict: dict,  chain_quality: float</td>
+<td>Calculate the proportion of blocks produced by malicious nodes</td>
+</tr>
+<tr>
+<td>chain_growth</td>
+<td>blockchain:Chain</td>
+<td>block_height: int</td>
+<td>Obtain the growth rate  of the blockchain, i.e., blockchain height</td>
+</tr>
+</tbody>
+</table>
+<p>Note that both <code>common_prefix</code> and <code>chain_growth</code> only implement part of the corresponding properties: <code>common_prefix</code> only calculates the common prefix of two blockchains, while the consistency rate is calculated with the log generated during the simulation, and <code>chain_growth</code> only returns the blockchain height, while the calculation of the chain growth rate is completed in the <code>CalculateStatistics</code> function. </p>
+<p>For more detailed explanations of the above three indicators, refer to:</p>
+<ul>
+<li>J. A. Garay, A. Kiayias and N. Leonardos, "The bitcoin backbone protocol: Analysis and applications", Eurocrypt, 2015. <a href="https://eprint.iacr.org/2014/765.pdf">https://eprint.iacr.org/2014/765.pdf</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.math"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
